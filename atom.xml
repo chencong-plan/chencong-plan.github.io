@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>聪聪的独立博客</title>
+  
+  <subtitle>挥舞这本子，做个ccoder</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://chencong-plan.github.io/"/>
+  <updated>2017-12-12T01:37:52.885Z</updated>
+  <id>http://chencong-plan.github.io/</id>
+  
+  <author>
+    <name>聪聪不匆匆</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分类</title>
+    <link href="http://chencong-plan.github.io/2017/12/12/categories/"/>
+    <id>http://chencong-plan.github.io/2017/12/12/categories/</id>
+    <published>2017-12-12T01:36:24.000Z</published>
+    <updated>2017-12-12T01:37:52.885Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于我</title>
+    <link href="http://chencong-plan.github.io/2017/12/08/about/"/>
+    <id>http://chencong-plan.github.io/2017/12/08/about/</id>
+    <published>2017-12-08T07:23:57.000Z</published>
+    <updated>2017-12-08T07:25:06.344Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;聪聪 我就看一看域名能够解析成功不&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="聪聪" scheme="http://chencong-plan.github.io/tags/%E8%81%AA%E8%81%AA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇博客</title>
+    <link href="http://chencong-plan.github.io/2017/12/08/new-post/"/>
+    <id>http://chencong-plan.github.io/2017/12/08/new-post/</id>
+    <published>2017-12-08T07:04:34.000Z</published>
+    <updated>2017-12-12T00:45:52.874Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#正文 我也不知道些什么 反正还没有部署成功吧！&lt;br&gt;一路走来很不容易，刚好收到很多朋友的私信问我最近在忙些什么，趁着现在没事做、时间多，脑子里还有点货，就借这个机会在博客上记录一路走来的历程，很励志，希望能给那些正在或准备走编程行业的人一些正能量。内容有点长，感兴趣的可
+      
+    
+    </summary>
+    
+    
+      <category term="文章" scheme="http://chencong-plan.github.io/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+</feed>
