@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2017-12-12T01:37:52.885Z</updated>
+  <updated>2017-12-14T05:48:48.702Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux下使用docker部署第一个Java应用</title>
+    <link href="https://chencong-plan.github.io/2017/12/14/first-docker-java/"/>
+    <id>https://chencong-plan.github.io/2017/12/14/first-docker-java/</id>
+    <published>2017-12-14T02:50:08.000Z</published>
+    <updated>2017-12-14T05:48:48.702Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Docker是一个划时代的开源项目，它彻底的释放了计算虚拟化的威力，极大的提高了应用的运算效率，降低了云计算资源供
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://chencong-plan.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>分类</title>
@@ -57,7 +79,7 @@
     <link href="https://chencong-plan.github.io/2017/12/08/new-post/"/>
     <id>https://chencong-plan.github.io/2017/12/08/new-post/</id>
     <published>2017-12-08T07:04:34.000Z</published>
-    <updated>2017-12-12T00:45:52.874Z</updated>
+    <updated>2017-12-14T02:53:55.401Z</updated>
     
     <summary type="html">
     
