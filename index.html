@@ -354,15 +354,14 @@
           
             
               <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/12/14/first-docker-java/#SOHUCS" itemprop="discussionUrl">
-                  <span id="url::https://chencong-plan.github.io/2017/12/14/first-docker-java/" class="cy_cmt_count" data-xid="2017/12/14/first-docker-java/" itemprop="commentsCount" ></span>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/14/first-docker-java/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/14/first-docker-java/" itemprop="commentCount"></span>
                 </a>
-              
+              </span>
             
           
 
@@ -989,15 +988,33 @@ Docker是一个划时代的开源项目，它彻底的释放了计算虚拟化�
 
 
 
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
   
-    <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cytb0COPK"></script>
-  
-
-
-
-
-
-
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ydueKuP9DBwlcJdmt9zWF1VV-gzGzoHsz',
+        appKey: 'QfeANi9TLulHoKgHq6V0XJ0U',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
