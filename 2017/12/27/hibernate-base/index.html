@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hibernate,框架," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="聪聪的独立博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言 Hibernate属于ORM框架，至于什么是ORM框架，搜索一下都有很多的。简而言之：  实现java对象和数据库表之间的映射。 提供对数据操作的方法。 减少开发人员使用SQL和JDBC处理数据。 能够使开发人员面向业务模型/商业逻辑编程。 减少特定数据库厂商的SQL的差异。   介绍Hibernate中对象的介绍 SessionFactory(org.hibernate.SessionFa">
+<meta name="keywords" content="hibernate,框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hibernate篇——基本配置及增删改查">
+<meta property="og:url" content="https://chencong-plan.github.io/2017/12/27/hibernate-base/index.html">
+<meta property="og:site_name" content="聪聪的独立博客">
+<meta property="og:description" content="前言 Hibernate属于ORM框架，至于什么是ORM框架，搜索一下都有很多的。简而言之：  实现java对象和数据库表之间的映射。 提供对数据操作的方法。 减少开发人员使用SQL和JDBC处理数据。 能够使开发人员面向业务模型/商业逻辑编程。 减少特定数据库厂商的SQL的差异。   介绍Hibernate中对象的介绍 SessionFactory(org.hibernate.SessionFa">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png">
+<meta property="og:updated_time" content="2017-12-27T05:20:46.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hibernate篇——基本配置及增删改查">
+<meta name="twitter:description" content="前言 Hibernate属于ORM框架，至于什么是ORM框架，搜索一下都有很多的。简而言之：  实现java对象和数据库表之间的映射。 提供对数据操作的方法。 减少开发人员使用SQL和JDBC处理数据。 能够使开发人员面向业务模型/商业逻辑编程。 减少特定数据库厂商的SQL的差异。   介绍Hibernate中对象的介绍 SessionFactory(org.hibernate.SessionFa">
+<meta name="twitter:image" content="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chencong-plan.github.io/2017/12/27/hibernate-base/"/>
+
+
+
+
+
+  <title>hibernate篇——基本配置及增删改查 | 聪聪的独立博客</title>
+  
+<style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?042a886f72a663c61ed2f77aeae32cb7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <div class="forkme">
+     <a target="_blank" href="https://github.com/chencong-plan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+    </div>
+ 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">聪聪的独立博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">挥舞这本子，做个ccoder</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2017/12/27/hibernate-base/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="聪聪不匆匆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="聪聪的独立博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hibernate篇——基本配置及增删改查</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T10:20:50+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-27T13:20:46+08:00">
+                2017-12-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hibernate/" itemprop="url" rel="index">
+                    <span itemprop="name">hibernate</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/27/hibernate-base/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/27/hibernate-base/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/27/hibernate-base/" class="leancloud_visitors" data-flag-title="hibernate篇——基本配置及增删改查">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,868
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>Hibernate属于ORM框架，至于什么是ORM框架，<a href="https://www.baidu.com/s?wd=orm%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">搜索一下</a>都有很多的。简而言之：</p>
+<ul>
+<li>实现java对象和数据库表之间的映射。</li>
+<li>提供对数据操作的方法。</li>
+<li>减少开发人员使用SQL和JDBC处理数据。</li>
+<li>能够使开发人员面向业务模型/商业逻辑编程。</li>
+<li>减少特定数据库厂商的SQL的差异。</li>
+</ul>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="Hibernate中对象的介绍"><a href="#Hibernate中对象的介绍" class="headerlink" title="Hibernate中对象的介绍"></a>Hibernate中对象的介绍</h3><ul>
+<li><code>SessionFactory(org.hibernate.SessionFactory)</code></li>
+</ul>
+<p><code>SessionFactory</code>本身在Hibernate当中起到了缓冲区的作用,缓冲了Hibernate自动生成的SQL语句和他的映射语句，还缓冲了一些可能重复利用的数据。同时为了能够创建<code>SessionFactory</code>对象，在<code>Hibernate</code>初始化的时候创建一个<code>Configuration</code>类的实例并将已经写好的配置文件<code>hibernate.cfg.xml</code>交给其处理，这样<code>Configuration</code>就可以创建<code>SessionFactory</code>对象了，当<code>SessionFactory</code>创建完成后，<code>Configuration</code>对象就没有用了，可以将其抛弃。此外，<code>SessionFacory</code>还用到了工厂模式，使得程序能够从<code>SessionFactory</code>当中获得<code>Session</code>实例，能够在整个程序当中共享使用，通常一个项目当中只需要一个<code>SessionFactory</code>就够了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Session session=sessionfactory.openSession();</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Session(org.hibernate.Session)</code></li>
+</ul>
+<p>上面说到了<code>SessionFactory</code>能够创建<code>Session</code>,处理之外还有什么方式可以或得到呢？<br><code>sessionFactory.opensession()</code>一般的CRUD我们都是使用的这个操作，只有增删改需要使用事务，查询不需要，在查询时候食用事务，会将修改的数据提交更新数据库。<br><code>sessionFactory.getCurrentSession()</code>如果存在多个拥有<code>session</code>的方法之间相互调用,这个时候就存在多个session对象和事务了，保证不了CRUD操作只在一个session对象和事务中操作，那么这个时候就需要使用这个方法获得session对象了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Session session=sessionfactory.getCurrentSession();</span><br></pre></td></tr></table></figure>
+<p>注意：如果使用<code>sessionFactory.getCurrentSession()</code>需要注意以下内容：在hibernate的配置文件当中必须加上<code>&lt;property name=&quot;current_session_context_class&quot;&gt;thread&lt;/property&gt;</code>这个配置。不需要写<code>session.close()</code>在事务提交的内部已经关闭。CRUD操作都需要事务，保证了业务操作的安全性，在整个方法当中一个session和一个事务。</p>
+<h2 id="配置Hibernate"><a href="#配置Hibernate" class="headerlink" title="配置Hibernate"></a>配置Hibernate</h2><h3 id="加入jar包，编写-hibernate-cfg-xml文件"><a href="#加入jar包，编写-hibernate-cfg-xml文件" class="headerlink" title="加入jar包，编写 hibernate.cfg.xml文件"></a>加入jar包，编写 <code>hibernate.cfg.xml</code>文件</h3><ul>
+<li>引入jar包</li>
+</ul>
+<p>我在这里使用的是<code>hibernate4.3.11</code>的版本，下面是我的使用jar包的截图。</p>
+<p><img src="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png" alt="images"></p>
+<p>注意需要加入MySQL的驱动jar包。</p>
+<ul>
+<li>编写<code>hibernate.cfg.xml</code>配置文件</li>
+</ul>
+<p>多的不说，先将配置文件放上来 ，再来解释解释吧！</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;!DOCTYPE hibernate-configuration PUBLIC</span><br><span class="line">        <span class="string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></span><br><span class="line">        <span class="string">"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>&gt;</span><br><span class="line">&lt;hibernate-configuration&gt;</span><br><span class="line"></span><br><span class="line">    &lt;session-factory&gt;</span><br><span class="line">        &lt;!--数据库连接地址--&gt;</span><br><span class="line">        &lt;property name=<span class="string">"connection.url"</span>&gt;jdbc:mysql:<span class="comment">//localhost:3306/java_base?useUnicode=true&amp;amp;characterEncoding=UTF-8&lt;/property&gt;</span></span><br><span class="line">        &lt;!--数据库用户名--&gt;</span><br><span class="line">        &lt;property name="connection.username"&gt;chencong&lt;/property&gt;</span><br><span class="line">        &lt;!--数据库密码--&gt;</span><br><span class="line">        &lt;property name="connection.password"&gt;123456&lt;/property&gt;</span><br><span class="line">        &lt;!--数据库连接驱动--&gt;</span><br><span class="line">        &lt;property name="connection.driver_class"&gt;com.mysql.jdbc.Driver&lt;/property&gt;</span><br><span class="line">        &lt;!--数据库方言，指定使用的是哪一种数据库--&gt;</span><br><span class="line">        &lt;property name="dialect"&gt;org.hibernate.dialect.MySQL5InnoDBDialect&lt;/property&gt;</span><br><span class="line">        &lt;!--&lt;property name="hbm2ddl.auto"&gt;&lt;/property&gt;--&gt;</span><br><span class="line">        &lt;!--执行CRUD操作控制台打印SQL语句--&gt;</span><br><span class="line">        &lt;property name="show_sql"&gt;true&lt;/property&gt;</span><br><span class="line">        &lt;!--将打印的SQL语句格式化输出--&gt;</span><br><span class="line">        &lt;property name="format_sql"&gt;true&lt;/property&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &lt;!--实体类映射文件的类--&gt;</span><br><span class="line">        &lt;mapping <span class="class"><span class="keyword">class</span></span>=<span class="string">"cc.ccoder.hibernatebase.pojo.Student"</span>/&gt;</span><br><span class="line">    &lt;/session-factory&gt;</span><br><span class="line">&lt;/hibernate-configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>这里是最基本的配置，数据库相关配置，控制台格式化打印SQL语句，实体类映射，在这里使用的是注解，就不需要为每一个实体类配置一个xml文件了。</p>
+<h3 id="编写实体类"><a href="#编写实体类" class="headerlink" title="编写实体类"></a>编写实体类</h3><p> 在上面<code>hibernate.cfg.xml</code>的配置文件当中有一个<code>mapping</code>的映射配置，现在我们就编写上面说到的那个实体类<code>Student</code>。</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> : ChenCong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> : Created in 9:03 2017/12/27</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"student"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span>  <span class="comment">// 该字段为主键</span></span><br><span class="line">    <span class="meta">@GenericGenerator</span>(name=<span class="string">"uuidGen"</span> , strategy = <span class="string">"uuid"</span>)  <span class="comment">// 主键生成策略，此处为UUID</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(generator = <span class="string">"uuidGen"</span>)</span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"id"</span>)  <span class="comment">// 该属性对应表字段为id</span></span><br><span class="line">    <span class="keyword">private</span> String id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name=<span class="string">"name"</span>)  <span class="comment">// 该属性对应字段为name</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"age"</span>)</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"loginName"</span>)</span><br><span class="line">    <span class="keyword">private</span> String loginName;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Column</span>(name = <span class="string">"pwd"</span>)</span><br><span class="line">    <span class="keyword">private</span> String pwd;</span><br><span class="line">    <span class="comment">// 省略掉getter setter方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 如上面配置所示，<code>@Entity</code>表示当中为一个实体类，对应映射数据库表为<code>@Table(name = &quot;student&quot;)</code>中的<code>student</code>表，主键自增，配置相应生成策略，该实体类当中属性和表中对应字段关联。</p>
+<p>好了，到目前为止，所有的配置都已经完成。下面我们就来编写一个<code>Main</code>主方法来使用<code>Hibernate</code>。</p>
+<h3 id="使用Hibernate"><a href="#使用Hibernate" class="headerlink" title="使用Hibernate"></a>使用Hibernate</h3><p>新建一个<code>Main</code>主方法来获得<code>Configuration</code>对象，然后获得<code>SessionFactory</code>,通过<code>SessionFactory</code>获得我们所需的<code>session</code>对象，然后通过这个<code>session</code>对象来对数据进行CRUD的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> : ChenCong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> : Created in 9:05 2017/12/27</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 加载配置</span></span><br><span class="line">        Configuration config = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">        <span class="comment">// 创建会话工厂</span></span><br><span class="line">        ServiceRegistry registry = <span class="keyword">new</span> StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();</span><br><span class="line">        <span class="comment">//获得sessionFactory</span></span><br><span class="line">        SessionFactory factory = config.buildSessionFactory(registry);</span><br><span class="line">        <span class="comment">//开启session</span></span><br><span class="line">        Session session = factory.openSession();</span><br><span class="line">        System.out.println(session);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意此处的<code>config.getProperties()</code>是用来加载上面配置的<code>hibernate.cfg.xml</code>文件，配置文件放在src根目录下，或者在<code>IDEA</code>中新建<code>resources</code>文件夹使其<code>Make Directory as</code>成为<code>Resources Root</code>根目录。</p>
+<p>运行上面的程序,我们将获得一个<code>session</code>对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SessionImpl(PersistenceContext[entityKeys=[],collectionKeys=[]];</span><br><span class="line">ActionQueue[insertions=org.hibernate.engine.spi.ExecutableList@<span class="number">69504</span>ae9 </span><br><span class="line">updates=org.hibernate.engine.spi.ExecutableList@<span class="number">387</span>a8303 </span><br><span class="line">deletions=org.hibernate.engine.spi.ExecutableList@<span class="number">28</span>cda624 </span><br><span class="line">orphanRemovals=org.hibernate.engine.spi.ExecutableList@<span class="number">1500</span>b2f3 </span><br><span class="line">collectionCreations=org.hibernate.engine.spi.ExecutableList@<span class="number">7</span>eecb5b8 </span><br><span class="line">collectionRemovals=org.hibernate.engine.spi.ExecutableList@<span class="number">126253f</span>d </span><br><span class="line">collectionUpdates=org.hibernate.engine.spi.ExecutableList@<span class="number">57</span>db2b13 </span><br><span class="line">collectionQueuedOps=org.hibernate.engine.spi.ExecutableList@<span class="number">475</span>c9c31 </span><br><span class="line">unresolvedInsertDependencies=UnresolvedEntityInsertActions[]])</span><br></pre></td></tr></table></figure>
+<p>此时都已经配置好了<code>hibernate</code>了，下面我们就来根据这个<code>session</code>来对数据库进行CRUD操作。</p>
+<h2 id="CRUD操作"><a href="#CRUD操作" class="headerlink" title="CRUD操作"></a>CRUD操作</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><h4 id="HQL查询所有记录"><a href="#HQL查询所有记录" class="headerlink" title="HQL查询所有记录"></a>HQL查询所有记录</h4><p>在<code>hibernate</code>当中我们可以使用<code>HQL</code>语句来查询出我们需要的结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据HQL语句查询数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentByHQL</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">        Query query = session.createQuery(<span class="string">"from Student"</span>);</span><br><span class="line">        List&lt;Student&gt; result = query.list();</span><br><span class="line">        <span class="comment">// 打印结果</span></span><br><span class="line">        <span class="keyword">for</span> (Student student : result) &#123;</span><br><span class="line">            System.out.println(student);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>对上面的<code>Query query = session.createQuery(&quot;from Student&quot;);</code>语句进行说明：<code>from Student</code>的这个<code>Student</code>为实体类的类名，而不是表明，使用HQL语句是对实体类进行操作，而不是对数据库表进行操作，这就是对象关系映射(ORM).</p>
+<p>查询结果如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        student0_.id as id1_0_,</span><br><span class="line">        student0_.age as age2_0_,</span><br><span class="line">        student0_.loginName as loginNam3_0_,</span><br><span class="line">        student0_.name as name4_0_,</span><br><span class="line">        student0_.pwd as pwd5_0_ </span><br><span class="line">    from</span><br><span class="line">        student student0_</span><br><span class="line">Student&#123;id=<span class="string">'04fe838e6095a548016095a54b3c0000'</span>, name=<span class="string">'小红'</span>, age=<span class="number">22</span>, loginName=<span class="string">'xiaohong'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br><span class="line">Student&#123;id=<span class="string">'67f4e72d46c146978dcf948e0dbb68c9'</span>, name=<span class="string">'小王'</span>, age=<span class="number">12</span>, loginName=<span class="string">'xiaowang'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br><span class="line">Student&#123;id=<span class="string">'f7c327ab284d4f579872ed2dc71e28cf'</span>, name=<span class="string">'小明'</span>, age=<span class="number">12</span>, loginName=<span class="string">'xiaoming'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>第一部分为<code>hibernate.cfg.xml</code>当中配置的<code>show_sql</code>和<code>format_sql</code>，然后第二部分就是我们使用HQL语句查询出来的student的信息(我在实体类当中重写了toString()方法，所以为这种输出格式)。</p>
+<h4 id="根据表主键ID查询单条记录"><a href="#根据表主键ID查询单条记录" class="headerlink" title="根据表主键ID查询单条记录"></a>根据表主键ID查询单条记录</h4><p>很多情况下我们需要通过ID主键查询该表当中唯一的一条记录，那么就需要使用到session当中的<code>get()</code>方法。具体使用方法如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据ID主键查询，返回该实体类记录</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentById</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 这里的get方法第一个参数为返回实体类的类类型，第二个参数为表中该条记录的主键</span></span><br><span class="line">        Student student = (Student) session.get(Student.class, <span class="string">"04fe838e6095a548016095a54b3c0000"</span>);</span><br><span class="line">        System.out.println(student);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>控制台当中显示的结果如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        student0_.id as id1_0_0_,</span><br><span class="line">        student0_.age as age2_0_0_,</span><br><span class="line">        student0_.loginName as loginNam3_0_0_,</span><br><span class="line">        student0_.name as name4_0_0_,</span><br><span class="line">        student0_.pwd as pwd5_0_0_ </span><br><span class="line">    from</span><br><span class="line">        student student0_ </span><br><span class="line">    where</span><br><span class="line">        student0_.id=?</span><br><span class="line">Student&#123;id=<span class="string">'04fe838e6095a548016095a54b3c0000'</span>, name=<span class="string">'小红'</span>, age=<span class="number">22</span>, loginName=<span class="string">'xiaohong'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="SQL语句查询——查询字段和实体类完全匹配"><a href="#SQL语句查询——查询字段和实体类完全匹配" class="headerlink" title="SQL语句查询——查询字段和实体类完全匹配"></a>SQL语句查询——查询字段和实体类完全匹配</h4><p>上面第一个说到了使用HQL语句查询记录，但是很多情况下我们还是会使用SQL语句查询的，这样的场景<code>hibernate</code>还是支持的。但是有一点需要注意，使用SQL语句查询时候如果查询字段和实体类完全匹配，仍然可以返回实体类进行使用，如果不完全匹配，看下一个例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SQL语句查询结果字段和实体类完全匹配</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentBySQL</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">        SQLQuery sqlQuery = session.createSQLQuery(<span class="string">"select * from student"</span>);</span><br><span class="line">        sqlQuery.addEntity(Student.class);</span><br><span class="line">        List&lt;Student&gt; list = sqlQuery.list();</span><br><span class="line">        <span class="keyword">for</span> (Student student1 : list) &#123;</span><br><span class="line">            System.out.println(student1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>上面<code>select * from student</code>查询的是表明而不是实体类名，同时返回的结果集当中字段和实体类完全匹配，就可以直接使用<code>addEntity()</code>方法将结果集放入实体类对象当中。控制台打印如下：（sql 语句为自己书写的SQL语句）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        * </span><br><span class="line">    from</span><br><span class="line">        student</span><br><span class="line">Student&#123;id=<span class="string">'04fe838e6095a548016095a54b3c0000'</span>, name=<span class="string">'小红'</span>, age=<span class="number">22</span>, loginName=<span class="string">'xiaohong'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br><span class="line">Student&#123;id=<span class="string">'67f4e72d46c146978dcf948e0dbb68c9'</span>, name=<span class="string">'小王'</span>, age=<span class="number">12</span>, loginName=<span class="string">'xiaowang'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br><span class="line">Student&#123;id=<span class="string">'f7c327ab284d4f579872ed2dc71e28cf'</span>, name=<span class="string">'小明'</span>, age=<span class="number">12</span>, loginName=<span class="string">'xiaoming'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="SQL语句查询——查询字段和实体类不完全匹配"><a href="#SQL语句查询——查询字段和实体类不完全匹配" class="headerlink" title="SQL语句查询——查询字段和实体类不完全匹配"></a>SQL语句查询——查询字段和实体类不完全匹配</h4><p>上面的例子说了，SQL语句查询的结果集和实体类完全匹配的情况，但是很多时候，我们查询只需要我们需要的字段，而不需要所有的字段，就不能使用上面那种方式了，不能讲查询结果集放入实体类了，返回的结果是对象集合<code>Object[]</code>了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * SQL语句查询结果字段和实体类不匹配</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentByArr</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">       SQLQuery sqlQuery = session.createSQLQuery(<span class="string">"select id,name from student"</span>);</span><br><span class="line">       List&lt;Object[]&gt; list = sqlQuery.list();</span><br><span class="line">       <span class="keyword">for</span> (Object[] objects : list) &#123;</span><br><span class="line">           System.out.println(objects[<span class="number">0</span>] + <span class="string">"  "</span> + objects[<span class="number">1</span>]);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>如上面所示返回的结果是一个<code>Object[]</code>数组。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        id,</span><br><span class="line">        name </span><br><span class="line">    from</span><br><span class="line">        student</span><br><span class="line"><span class="number">04f</span>e838e6095a548016095a54b3c0000  小红</span><br><span class="line"><span class="number">67f</span>4e72d46c146978dcf948e0dbb68c9  小王</span><br><span class="line">f7c327ab284d4f579872ed2dc71e28cf  小明</span><br></pre></td></tr></table></figure>
+<h4 id="HQL查询时候使用事务"><a href="#HQL查询时候使用事务" class="headerlink" title="HQL查询时候使用事务"></a>HQL查询时候使用事务</h4><p>通常情况下使用查询时候不需要事务的，但是在查询的时候使用事务会将查询后修改的数据同步到数据库。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 有事务的情况下查询数据,修改之后，如果存在事务提交会将数据全部提交更新数据</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session 对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentOnTransaction</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    session.getTransaction().begin();</span><br><span class="line">    Query query = session.createQuery(<span class="string">"from Student"</span>);</span><br><span class="line">    List&lt;Student&gt; students = query.list();</span><br><span class="line">    <span class="keyword">for</span> (Student student : students) &#123;</span><br><span class="line">        student.setPwd(<span class="string">"123456"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行上面的程序，在数据库当猴子那个所有记录的<code>pwd</code>字段的值都被修改成<code>123456</code>，同时同步到数据库当中。通过控制台输出的SQL语句可以看出，这段程序执行了查询后，又执行了更新操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        student0_.id as id1_0_,</span><br><span class="line">        student0_.age as age2_0_,</span><br><span class="line">        student0_.loginName as loginNam3_0_,</span><br><span class="line">        student0_.name as name4_0_,</span><br><span class="line">        student0_.pwd as pwd5_0_ </span><br><span class="line">    from</span><br><span class="line">        student student0_</span><br><span class="line">Hibernate: </span><br><span class="line">    update</span><br><span class="line">        student </span><br><span class="line">    set</span><br><span class="line">        age=?,</span><br><span class="line">        loginName=?,</span><br><span class="line">        name=?,</span><br><span class="line">        pwd=? </span><br><span class="line">    where</span><br><span class="line">        id=?</span><br><span class="line">Hibernate: </span><br><span class="line">    update</span><br><span class="line">        student </span><br><span class="line">    set</span><br><span class="line">        age=?,</span><br><span class="line">        loginName=?,</span><br><span class="line">        name=?,</span><br><span class="line">        pwd=? </span><br><span class="line">    where</span><br><span class="line">        id=?</span><br><span class="line">Hibernate: </span><br><span class="line">    update</span><br><span class="line">        student </span><br><span class="line">    set</span><br><span class="line">        age=?,</span><br><span class="line">        loginName=?,</span><br><span class="line">        name=?,</span><br><span class="line">        pwd=? </span><br><span class="line">    where</span><br><span class="line">        id=?</span><br></pre></td></tr></table></figure>
+<h4 id="HQL查询时使用参数"><a href="#HQL查询时使用参数" class="headerlink" title="HQL查询时使用参数"></a>HQL查询时使用参数</h4><p>通常情况下使用查询语句时候，都是需要使用参数的。有两种方式进行操作：</p>
+<ul>
+<li>使用 <code>?</code> 作为占位符</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 带参数的查询语句</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentByParam</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    Query query = session.createQuery(<span class="string">"from Student where loginName = ?"</span>);</span><br><span class="line">    query.setString(<span class="number">0</span>, <span class="string">"xiaohong"</span>);</span><br><span class="line">    List&lt;Student&gt; students = query.list();</span><br><span class="line">    <span class="keyword">for</span> (Student student : students) &#123;</span><br><span class="line">        System.out.println(student);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意<code>hibernate</code>当中是从 <code>0</code> 开始的，跟jdbc不同。直接结果为查询<code>loginName = xiaohong</code>的学生信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        student0_.id as id1_0_,</span><br><span class="line">        student0_.age as age2_0_,</span><br><span class="line">        student0_.loginName as loginNam3_0_,</span><br><span class="line">        student0_.name as name4_0_,</span><br><span class="line">        student0_.pwd as pwd5_0_ </span><br><span class="line">    from</span><br><span class="line">        student student0_ </span><br><span class="line">    where</span><br><span class="line">        student0_.loginName=?</span><br><span class="line">Student&#123;id=<span class="string">'04fe838e6095a548016095a54b3c0000'</span>, name=<span class="string">'小红'</span>, age=<span class="number">22</span>, loginName=<span class="string">'xiaohong'</span>, pwd=<span class="string">'123456'</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用<code>变量</code> 作为占位符。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 带参数的查询语句</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentByParam</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">        Query query = session.createQuery(<span class="string">"from Student where loginName = :name"</span>);</span><br><span class="line">        query.setString(<span class="string">"name"</span>, <span class="string">"xiaohong"</span>);</span><br><span class="line">        List&lt;Student&gt; students = query.list();</span><br><span class="line">        <span class="keyword">for</span> (Student student : students) &#123;</span><br><span class="line">            System.out.println(student);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>此时使用的是<code>loginName = :name</code>这样一个<code>name</code>变量占位符，下面的<code>query.setString(&quot;name&quot;, &quot;xiaohong&quot;);</code>当中同样使用<code>name</code>这个变量。注意使用变量时候需要在前面添加一个<code>:</code>.</p>
+<p>结果如上不变。</p>
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><p>由于之前我们配置实体类当中生命了主键的生成策略，因此在这里使用时候不需要设置主键。同时进行<code>新增</code>操作时候需要使用事务。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 保存实体信息</span></span><br><span class="line"><span class="comment"> * 需要开启事务 可以通过打印的sql语句来查看</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveStudent</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    Student student = <span class="keyword">new</span> Student();</span><br><span class="line">    student.setName(<span class="string">"聪聪"</span>);</span><br><span class="line">    student.setAge(<span class="number">22</span>);</span><br><span class="line">    student.setLoginName(<span class="string">"ccoder"</span>);</span><br><span class="line">    student.setPwd(<span class="string">"123456"</span>);</span><br><span class="line">    session.getTransaction().begin();</span><br><span class="line">    session.save(student);  <span class="comment">// 进行save()操作提交时候需要在事务当中进行</span></span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过控制台打印日志新增数据成功。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    insert </span><br><span class="line">    into</span><br><span class="line">        student</span><br><span class="line">        (age, loginName, name, pwd, id) </span><br><span class="line">    values</span><br><span class="line">        (?, ?, ?, ?, ?)</span><br></pre></td></tr></table></figure>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>进行修改操作时候，可以先将数据查询出来，然后进行修改。这是使用<code>update(Object o)</code>时候的操作，数据已经存在于数据库当中。还可以使用<code>saveOrUpdate(Object o)</code> 当数据不存在时候进行save操作，存在时进行update操作。</p>
+<ul>
+<li>使用对象进行操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 更新信息  同样需要打开事务</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">updateStudent</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用对象进行更新</span></span><br><span class="line">    session.getTransaction().begin();</span><br><span class="line">    Student student = (Student) session.get(Student.class, <span class="string">"04fe838e6096565a016096565d480000"</span>);</span><br><span class="line">    student.setName(<span class="string">"聪聪不匆匆"</span>);</span><br><span class="line">    session.saveOrUpdate(student);</span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述操作先进行查询<code>get()</code>,然后再进行<code>saveOrUpdate()</code>当中的<code>update()</code>操作。从控制台日志查看SQL记录。</p>
+<ul>
+<li>使用HQL进行操作</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 更新信息  同样需要打开事务</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">updateStudent</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    session.getTransaction().begin();</span><br><span class="line">    session.createQuery(<span class="string">"update Student set loginName = 'chencong' where id = '04fe838e6096565a016096565d480000' "</span>).executeUpdate();</span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>删除操作，直接通过主键进行删除。同时提交事务。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 删除</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> session session对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deleteStudent</span><span class="params">(Session session)</span> </span>&#123;</span><br><span class="line">    session.getTransaction().begin();</span><br><span class="line">    Student student = (Student) session.get(Student.class, <span class="string">"04fe838e6096565a016096565d480000"</span>);</span><br><span class="line">    session.delete(student);</span><br><span class="line">    session.getTransaction().commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码块，先通过主键查询到对象，然后再进行删除。控制台记录如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Hibernate: </span><br><span class="line">    select</span><br><span class="line">        student0_.id as id1_0_0_,</span><br><span class="line">        student0_.age as age2_0_0_,</span><br><span class="line">        student0_.loginName as loginNam3_0_0_,</span><br><span class="line">        student0_.name as name4_0_0_,</span><br><span class="line">        student0_.pwd as pwd5_0_0_ </span><br><span class="line">    from</span><br><span class="line">        student student0_ </span><br><span class="line">    where</span><br><span class="line">        student0_.id=?</span><br><span class="line">Hibernate: </span><br><span class="line">    delete </span><br><span class="line">    from</span><br><span class="line">        student </span><br><span class="line">    where</span><br><span class="line">        id=?</span><br></pre></td></tr></table></figure>
+<h2 id="后序"><a href="#后序" class="headerlink" title="后序"></a>后序</h2><p>通过上面的配置和学习，了解了<code>hibernate</code>的基本配置和使用。下一节将总结一下<code>hibernate</code>当中的<code>分页、级联操作、关联查询</code>等问题。同时从上面的操作中看出<code>session</code>对象伴随着<code>CRUD</code>操作，那么之后也会说明<code>hibernate</code>当中对象的各种状态、生命周期以及它们之间是如何转换的。</p>
+<p>学习之路，任重道远，加油。</p>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<ul>
+<li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
+<li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
+<li><a href="https://github.com/chencong-plan" target="_blank" rel="noopener">Github@ccoder</a></li>
+<li><a href="mailto:admin@ccoder.top" target="_blank" rel="noopener">Email@ccoder</a> <em>or</em> <a href="mailto:chencong3139@gmail.com" target="_blank" rel="noopener">Gmail@ccoder</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat_pay.png" alt="聪聪不匆匆 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali_pay.png" alt="聪聪不匆匆 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hibernate/" rel="tag"><i class="fa fa-tag"></i> hibernate</a>
+          
+            <a href="/tags/框架/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/20/selection-sort-plus/" rel="next" title="算法篇——选择排序SelectionSort(泛型比较)">
+                <i class="fa fa-chevron-left"></i> 算法篇——选择排序SelectionSort(泛型比较)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.png"
+                alt="聪聪不匆匆" />
+            
+              <p class="site-author-name" itemprop="name">聪聪不匆匆</p>
+              <p class="site-description motion-element" itemprop="description">hello，every body!~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/chencong-plan" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1042738887@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/chencong3139" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/chencong3139" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=496620009&auto=0&height=66"></iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x4ECB;&#x7ECD;" class="headerlink" title="&#x4ECB;&#x7ECD;"></a>&#x4ECB;&#x7ECD;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate中对象的介绍"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#Hibernate&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x4ECB;&#x7ECD;" class="headerlink" title="Hibernate&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x4ECB;&#x7ECD;"></a>Hibernate&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x4ECB;&#x7ECD;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Hibernate"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x914D;&#x7F6E;Hibernate" class="headerlink" title="&#x914D;&#x7F6E;Hibernate"></a>&#x914D;&#x7F6E;Hibernate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加入jar包，编写-hibernate-cfg-xml文件"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x52A0;&#x5165;jar&#x5305;&#xFF0C;&#x7F16;&#x5199;-hibernate-cfg-xml&#x6587;&#x4EF6;" class="headerlink" title="&#x52A0;&#x5165;jar&#x5305;&#xFF0C;&#x7F16;&#x5199; hibernate.cfg.xml&#x6587;&#x4EF6;"></a>&#x52A0;&#x5165;jar&#x5305;&#xFF0C;&#x7F16;&#x5199; <code>hibernate.cfg.xml</code>&#x6587;&#x4EF6;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写实体类"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x7F16;&#x5199;&#x5B9E;&#x4F53;&#x7C7B;" class="headerlink" title="&#x7F16;&#x5199;&#x5B9E;&#x4F53;&#x7C7B;"></a>&#x7F16;&#x5199;&#x5B9E;&#x4F53;&#x7C7B;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Hibernate"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;Hibernate" class="headerlink" title="&#x4F7F;&#x7528;Hibernate"></a>&#x4F7F;&#x7528;Hibernate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRUD操作"><span class="nav-number">4.</span> <span class="nav-text"><a href="#CRUD&#x64CD;&#x4F5C;" class="headerlink" title="CRUD&#x64CD;&#x4F5C;"></a>CRUD&#x64CD;&#x4F5C;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x67E5;&#x8BE2;" class="headerlink" title="&#x67E5;&#x8BE2;"></a>&#x67E5;&#x8BE2;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HQL查询所有记录"><span class="nav-number">4.1.1.</span> <span class="nav-text"><a href="#HQL&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x8BB0;&#x5F55;" class="headerlink" title="HQL&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x8BB0;&#x5F55;"></a>HQL&#x67E5;&#x8BE2;&#x6240;&#x6709;&#x8BB0;&#x5F55;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根据表主键ID查询单条记录"><span class="nav-number">4.1.2.</span> <span class="nav-text"><a href="#&#x6839;&#x636E;&#x8868;&#x4E3B;&#x952E;ID&#x67E5;&#x8BE2;&#x5355;&#x6761;&#x8BB0;&#x5F55;" class="headerlink" title="&#x6839;&#x636E;&#x8868;&#x4E3B;&#x952E;ID&#x67E5;&#x8BE2;&#x5355;&#x6761;&#x8BB0;&#x5F55;"></a>&#x6839;&#x636E;&#x8868;&#x4E3B;&#x952E;ID&#x67E5;&#x8BE2;&#x5355;&#x6761;&#x8BB0;&#x5F55;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL语句查询——查询字段和实体类完全匹配"><span class="nav-number">4.1.3.</span> <span class="nav-text"><a href="#SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x5B8C;&#x5168;&#x5339;&#x914D;" class="headerlink" title="SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x5B8C;&#x5168;&#x5339;&#x914D;"></a>SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x5B8C;&#x5168;&#x5339;&#x914D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL语句查询——查询字段和实体类不完全匹配"><span class="nav-number">4.1.4.</span> <span class="nav-text"><a href="#SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x4E0D;&#x5B8C;&#x5168;&#x5339;&#x914D;" class="headerlink" title="SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x4E0D;&#x5B8C;&#x5168;&#x5339;&#x914D;"></a>SQL&#x8BED;&#x53E5;&#x67E5;&#x8BE2;&#x2014;&#x2014;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x548C;&#x5B9E;&#x4F53;&#x7C7B;&#x4E0D;&#x5B8C;&#x5168;&#x5339;&#x914D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HQL查询时候使用事务"><span class="nav-number">4.1.5.</span> <span class="nav-text"><a href="#HQL&#x67E5;&#x8BE2;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;" class="headerlink" title="HQL&#x67E5;&#x8BE2;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;"></a>HQL&#x67E5;&#x8BE2;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x4E8B;&#x52A1;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HQL查询时使用参数"><span class="nav-number">4.1.6.</span> <span class="nav-text"><a href="#HQL&#x67E5;&#x8BE2;&#x65F6;&#x4F7F;&#x7528;&#x53C2;&#x6570;" class="headerlink" title="HQL&#x67E5;&#x8BE2;&#x65F6;&#x4F7F;&#x7528;&#x53C2;&#x6570;"></a>HQL&#x67E5;&#x8BE2;&#x65F6;&#x4F7F;&#x7528;&#x53C2;&#x6570;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新增"><span class="nav-number">4.2.</span> <span class="nav-text"><a href="#&#x65B0;&#x589E;" class="headerlink" title="&#x65B0;&#x589E;"></a>&#x65B0;&#x589E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-number">4.3.</span> <span class="nav-text"><a href="#&#x4FEE;&#x6539;" class="headerlink" title="&#x4FEE;&#x6539;"></a>&#x4FEE;&#x6539;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">4.4.</span> <span class="nav-text"><a href="#&#x5220;&#x9664;" class="headerlink" title="&#x5220;&#x9664;"></a>&#x5220;&#x9664;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后序"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x540E;&#x5E8F;" class="headerlink" title="&#x540E;&#x5E8F;"></a>&#x540E;&#x5E8F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">聪聪不匆匆</span>
+
+<!--以下3行为一条竖线和Coding Page-->
+  <div class="powered-by">  
+  </div>
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+</div>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">9.8k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ydueKuP9DBwlcJdmt9zWF1VV-gzGzoHsz',
+        appKey: 'QfeANi9TLulHoKgHq6V0XJ0U',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ydueKuP9DBwlcJdmt9zWF1VV-gzGzoHsz", "QfeANi9TLulHoKgHq6V0XJ0U");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
