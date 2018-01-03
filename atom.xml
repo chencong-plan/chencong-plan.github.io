@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2017-12-29T09:33:32.399Z</updated>
+  <updated>2018-01-03T06:22:36.487Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>算法篇——插入排序InsertionSort</title>
+    <link href="https://chencong-plan.github.io/2018/01/03/insertion-sort/"/>
+    <id>https://chencong-plan.github.io/2018/01/03/insertion-sort/</id>
+    <published>2018-01-03T05:21:07.000Z</published>
+    <updated>2018-01-03T06:22:36.487Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;插入排序&lt;/code&gt;就是每一步都将一个待排数据按照其大小插入到已排数据中合适位置，直至所有数据都排列
+      
+    
+    </summary>
+    
+      <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="InsertionSort" scheme="https://chencong-plan.github.io/tags/InsertionSort/"/>
+    
+      <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="插入排序" scheme="https://chencong-plan.github.io/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>对自己的一些话——2017</title>
     <link href="https://chencong-plan.github.io/2017/12/29/lastyear-recolletion/"/>
     <id>https://chencong-plan.github.io/2017/12/29/lastyear-recolletion/</id>
     <published>2017-12-29T09:21:32.000Z</published>
-    <updated>2017-12-29T09:33:32.399Z</updated>
+    <updated>2018-01-02T00:56:17.137Z</updated>
     
     <summary type="html">
     
@@ -71,7 +99,7 @@
     <link href="https://chencong-plan.github.io/2017/12/20/selection-sort-plus/"/>
     <id>https://chencong-plan.github.io/2017/12/20/selection-sort-plus/</id>
     <published>2017-12-20T07:35:01.000Z</published>
-    <updated>2017-12-20T08:29:19.727Z</updated>
+    <updated>2018-01-03T05:23:22.638Z</updated>
     
     <summary type="html">
     
@@ -86,9 +114,9 @@
       <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
-    
       <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
     
       <category term="选择排序" scheme="https://chencong-plan.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
@@ -101,7 +129,7 @@
     <link href="https://chencong-plan.github.io/2017/12/20/selection-sort/"/>
     <id>https://chencong-plan.github.io/2017/12/20/selection-sort/</id>
     <published>2017-12-20T05:27:33.000Z</published>
-    <updated>2017-12-20T08:30:16.198Z</updated>
+    <updated>2018-01-03T05:24:53.708Z</updated>
     
     <summary type="html">
     
@@ -115,9 +143,9 @@
       <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
-    
       <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
     
       <category term="选择排序" scheme="https://chencong-plan.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
