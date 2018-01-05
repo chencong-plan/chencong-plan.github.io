@@ -1,0 +1,130 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>不就是个照片墙嘛</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+#img {
+	width:503px;
+	height:252px;
+	margin:50px auto;
+	perspective:700px;
+	-webkit-perspective:700px;
+}
+#img img {
+	float:left;
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+}
+#btn {
+	width:100px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:16px;
+	color:#000;
+	background:#0fc;
+	border-radius:5px;
+	margin:0 auto;
+	padding:5px 5px;
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div id="img">
+    <img src="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png" alt="">
+    <img src="https://uploadbeta.com/_s/upload/2016/10/23/3f079c7f38bd62264062291fe4d23672.jpg500.jpg" alt="">
+    <img src="https://uploadbeta.com/_s/upload/2017/03/21/cfa764131e2c0a0495f30060f2c61b32.jpg500.jpg" alt="">
+    <img src="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png" alt="">
+    <img src="https://uploadbeta.com/_s/upload/2016/10/23/3f079c7f38bd62264062291fe4d23672.jpg500.jpg" alt="">
+    <img src="http://osal57kgi.bkt.clouddn.com/hibernate_base_jar.png" alt="">
+    <img src="https://uploadbeta.com/_s/upload/2016/10/23/3f079c7f38bd62264062291fe4d23672.jpg500.jpg" alt="">
+   
+</div>
+<div id="btn">你点一下看看</div>
+
+<script>
+/*
+        1.闪的效果（瞬间高度宽度变为0，scale,随机）
+        2.图片由小变大，同时透明度由1-0
+        3.图片旋转，同时透明度由0-1
+    */
+window.onload = function() {
+    var btn = document.getElementById('btn');
+    var imgs = document.getElementsByTagName("img");
+    var on = true;
+
+    btn.onclick = function() {
+        if (!on) {
+            return;
+        }
+        on = false;
+        var endNum = 0; //运动完成的图片数量
+        for (var i = 0; i < imgs.length; i++) {
+            (function(i) {
+                setTimeout(function() {
+                    montion(imgs[i], '1s', function() {
+                        this.style.transform = 'scale(0)';
+                    }, function() {
+                        montion(this, "1s", function() {
+                            this.style.transform = 'scale(1)';
+                            this.style.opacity = '0';
+                        }, function() {
+                            endNum++;
+                            if (endNum == imgs.length) {
+                                toBig();
+                            }
+                        })
+                    })
+                }, Math.random() * 1000);
+            })(i)
+        }
+
+
+    };
+
+    //第三个效果
+    function toBig() {
+        /*
+            坐标轴（X，Y,z）
+        */
+        var allEnd = 0;
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.transition = "";
+            imgs[i].style.transform = 'rotateY(0deg) translateZ(-' + Math.random() * 500 + 'px)';
+            (function(i) {
+                setTimeout(function() {
+                    montion(imgs[i], '2s', function() {
+                        this.style.opacity = 1;
+                        this.style.transform = 'rotateY(-360deg) translateZ(0)';
+                    }, function() {
+                        allEnd++;
+                        if (allEnd == imgs.length) {
+                            on = true;
+                        }
+                    });
+                }, Math.random() * 1000);
+            })(i)
+        }
+    }
+
+    //运动函数（运动的对象，时间，属性函数，回调）
+    function montion(obj, time, doFn, callBack) {
+        obj.style.transition = time;
+        doFn.call(obj); //调用函数，并把this的指向给obj
+        var called = false
+        obj.addEventListener('transitionend', function() {
+            if (!called) {
+                callBack && callBack.call(obj);
+                called = true;
+            }
+        }, false);
+    }
+}
+</script>
+
+</body>
+</html>
