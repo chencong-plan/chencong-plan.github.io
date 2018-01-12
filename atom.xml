@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2018-01-03T06:22:36.487Z</updated>
+  <updated>2018-01-12T08:41:49.371Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring篇——简单理解@Transactional注解中propagation的使用</title>
+    <link href="https://chencong-plan.github.io/2018/01/12/transacation-propagation/"/>
+    <id>https://chencong-plan.github.io/2018/01/12/transacation-propagation/</id>
+    <published>2018-01-12T06:23:45.000Z</published>
+    <updated>2018-01-12T08:41:49.371Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;有一段时间没有更新记录了，正好今天是周五。公司给的一个小项目里面有自己封装的框架，闲暇时光看一看…&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="spring" scheme="https://chencong-plan.github.io/categories/spring/"/>
+    
+    
+      <category term="框架" scheme="https://chencong-plan.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="spring" scheme="https://chencong-plan.github.io/tags/spring/"/>
+    
+  </entry>
   
   <entry>
     <title>算法篇——插入排序InsertionSort</title>
