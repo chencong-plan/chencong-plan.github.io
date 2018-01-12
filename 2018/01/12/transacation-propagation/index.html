@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="聪聪的独立博客">
 <meta property="og:description" content="前言 有一段时间没有更新记录了，正好今天是周五。公司给的一个小项目里面有自己封装的框架，闲暇时光看一看… 无意之中看到了封装分页的的底层方法中使用了这样的注解。  1234@Transactional(       readOnly = true,       propagation = Propagation.NOT_SUPPORTED   ) 那我就顺便学习，总结下@Transactional">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T09:31:25.010Z">
+<meta property="og:updated_time" content="2018-01-12T09:33:16.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring篇——简单理解@Transactional注解中propagation的使用">
 <meta name="twitter:description" content="前言 有一段时间没有更新记录了，正好今天是周五。公司给的一个小项目里面有自己封装的框架，闲暇时光看一看… 无意之中看到了封装分页的的底层方法中使用了这样的注解。  1234@Transactional(       readOnly = true,       propagation = Propagation.NOT_SUPPORTED   ) 那我就顺便学习，总结下@Transactional">
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-12T17:31:25+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-12T17:33:16+08:00">
                 2018-01-12
               </time>
             
@@ -476,7 +476,7 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(noRollbackFor = RuntimeException.class)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>查询操作不需要事物</li>
+<li>查询操作不需要事务</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Transactional</span>(propagation = Propagation.NOT_SUPPORTED)</span><br></pre></td></tr></table></figure>
 <p>或者</p>
