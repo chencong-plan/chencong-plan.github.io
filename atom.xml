@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2018-01-13T07:55:50.645Z</updated>
+  <updated>2018-01-13T12:59:57.775Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -21,18 +21,22 @@
     <link href="https://chencong-plan.github.io/2018/01/13/package-response/"/>
     <id>https://chencong-plan.github.io/2018/01/13/package-response/</id>
     <published>2018-01-13T07:53:26.000Z</published>
-    <updated>2018-01-13T07:55:50.645Z</updated>
+    <updated>2018-01-13T12:59:57.775Z</updated>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;还记得之前做个小应用的时候需要返回&lt;code&gt;json&lt;/code&gt;数据给前台。那时候只需要判断验证是否成功，如果
+      
     
     </summary>
     
       <category term="封装方法" scheme="https://chencong-plan.github.io/categories/%E5%B0%81%E8%A3%85%E6%96%B9%E6%B3%95/"/>
     
     
-      <category term="response" scheme="https://chencong-plan.github.io/tags/response/"/>
-    
-      <category term="服务器" scheme="https://chencong-plan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="Java封装" scheme="https://chencong-plan.github.io/tags/Java%E5%B0%81%E8%A3%85/"/>
     
   </entry>
   
