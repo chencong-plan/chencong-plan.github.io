@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2018-01-12T09:33:16.832Z</updated>
+  <updated>2018-01-13T07:55:50.645Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>简单总结下服务器相应内容的封装</title>
+    <link href="https://chencong-plan.github.io/2018/01/13/package-response/"/>
+    <id>https://chencong-plan.github.io/2018/01/13/package-response/</id>
+    <published>2018-01-13T07:53:26.000Z</published>
+    <updated>2018-01-13T07:55:50.645Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="封装方法" scheme="https://chencong-plan.github.io/categories/%E5%B0%81%E8%A3%85%E6%96%B9%E6%B3%95/"/>
+    
+    
+      <category term="response" scheme="https://chencong-plan.github.io/tags/response/"/>
+    
+      <category term="服务器" scheme="https://chencong-plan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring篇——简单理解@Transactional注解中propagation的使用</title>
