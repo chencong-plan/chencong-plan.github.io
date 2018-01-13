@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="聪聪的独立博客">
 <meta property="og:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-13T12:59:57.775Z">
+<meta property="og:updated_time" content="2018-01-13T13:02:00.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单总结下服务器相应内容的封装">
 <meta name="twitter:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T20:59:57+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T21:02:00+08:00">
                 2018-01-13
               </time>
             
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  393
+                  447
                 </span>
               
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -464,6 +464,13 @@
 <p>创建一个类作为响应对象，就叫做<code>ExecuteResult</code> </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExecuteResult</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Boolean status;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 相应的setter 和 getter方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>有点简陋，但是可以避免在代码当中重复写 <code>String result = &quot; &quot;</code> 等内容。就算做是一种进步吧，现在看看如何使用呢。</p>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<ul>
+<li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
+<li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
+<li><a href="https://github.com/chencong-plan" target="_blank" rel="noopener">Github@ccoder</a></li>
+<li><a href="mailto:admin@ccoder.top" target="_blank" rel="noopener">Email@ccoder</a> <em>or</em> <a href="mailto:chencong3139@gmail.com" target="_blank" rel="noopener">Gmail@ccoder</a></li>
+</ul>
 
       
     </div>
@@ -735,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演变"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6F14;&#x53D8;" class="headerlink" title="&#x6F14;&#x53D8;"></a>&#x6F14;&#x53D8;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始的开始"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演变"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6F14;&#x53D8;" class="headerlink" title="&#x6F14;&#x53D8;"></a>&#x6F14;&#x53D8;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始的开始"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
             
 
           </div>
