@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
+<meta name="description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
 <meta name="keywords" content="Java封装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单总结下服务器相应内容的封装">
+<meta property="og:title" content="简单总结下服务器响应的封装">
 <meta property="og:url" content="https://chencong-plan.github.io/2018/01/13/package-response/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
-<meta property="og:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
+<meta property="og:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-13T13:25:06.808Z">
+<meta property="og:updated_time" content="2018-01-13T13:34:32.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单总结下服务器相应内容的封装">
-<meta name="twitter:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
+<meta name="twitter:title" content="简单总结下服务器响应的封装">
+<meta name="twitter:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>简单总结下服务器相应内容的封装 | 聪聪的独立博客</title>
+  <title>简单总结下服务器响应的封装 | 聪聪的独立博客</title>
   
 <style>
   .forkme{
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简单总结下服务器相应内容的封装</h1>
+          <h1 class="post-title" itemprop="name headline">简单总结下服务器响应的封装</h1>
         
 
         <div class="post-meta">
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T21:25:06+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T21:34:32+08:00">
                 2018-01-13
               </time>
             
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2018/01/13/package-response/" class="leancloud_visitors" data-flag-title="简单总结下服务器相应内容的封装">
+             <span id="/2018/01/13/package-response/" class="leancloud_visitors" data-flag-title="简单总结下服务器响应的封装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -456,7 +456,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>还记得之前做个小应用的时候需要返回<code>json</code>数据给前台。那时候只需要判断验证是否成功，如果不成功就返回<code>message</code>消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。</p>
-<p>如何实际一个高可用的服务器相应类呢？今天就来总结下我是用过的一些服务器响应类吧。</p>
+<p>如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。</p>
 </blockquote>
 <h2 id="演变"><a href="#演变" class="headerlink" title="演变"></a>演变</h2><h3 id="开始的开始"><a href="#开始的开始" class="headerlink" title="开始的开始"></a>开始的开始</h3><p> 最开始如何写一个服务器响应类呢？请求返回数据给前台<code>ajax</code>调用验证使用。</p>
 <p> 最直接的想法是一个状态<code>status</code>该请求需要验证的内容是否正确(成功),<code>message</code>根据状态返回相应的提示性描述语句。</p>
@@ -527,7 +527,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://chencong-plan.github.io/2018/01/13/package-response/" title="简单总结下服务器相应内容的封装">https://chencong-plan.github.io/2018/01/13/package-response/</a>
+    <a href="https://chencong-plan.github.io/2018/01/13/package-response/" title="简单总结下服务器响应的封装">https://chencong-plan.github.io/2018/01/13/package-response/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
