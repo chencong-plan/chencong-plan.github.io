@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_1.png">
 <meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_4.png">
 <meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_server.png">
-<meta property="og:updated_time" content="2018-01-18T05:43:15.291Z">
+<meta property="og:updated_time" content="2018-01-18T06:06:35.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何安装redis和简单使用">
 <meta name="twitter:description" content="前言 在github上有个小项目，spring+springMVC+mybatis搭建的秒杀系统，简单的模拟秒杀、减库存、避免重复秒杀等问题。同时使用redis作为缓存、Protostuff作为序列化工具。传送门 现在就来简单记录下安装redis和使用的方法。  下载windows平台下载Windows平台下官方并不支持redis下载的，只是在github上微软自己针对Windows平台开发了。h">
@@ -351,7 +351,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-18T13:43:15+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-18T14:06:35+08:00">
                 2018-01-18
               </time>
             
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  494
+                  807
                 </span>
               
 
@@ -439,7 +439,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -493,7 +493,27 @@
 <li><strong>解压版</strong></li>
 </ul>
 <p>解压版只需要使用<code>CMD</code>命令，进入解压目录，然后将<code>redis</code>服务添加进入系统服务就行了。</p>
-<h3 id="Linux平台安装"><a href="#Linux平台安装" class="headerlink" title="Linux平台安装"></a>Linux平台安装</h3><h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<h3 id="Linux平台安装"><a href="#Linux平台安装" class="headerlink" title="Linux平台安装"></a>Linux平台安装</h3><p>-<strong>解压</strong></p>
+<p>解压之后可以看到redis目录当中存在这些内容。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z ~]# tar xzf redis-4.0.6.tar.gz</span><br><span class="line">[root@iZj1fkye8uu7o0Z ~]# ls redis-4.0.6</span><br><span class="line"><span class="number">00</span>-RELEASENOTES  CONTRIBUTING  deps     Makefile   README.md   runtest          runtest-sentinel  src    utils</span><br><span class="line">BUGS             COPYING       INSTALL  MANIFESTO  redis.conf  runtest-cluster  sentinel.conf     tests</span><br><span class="line">[root@iZj1fkye8uu7o0Z ~]#</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>编译</strong></li>
+</ul>
+<p>首先进入redis目录，然后编译</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z ~]# cd redis-4.0.6</span><br><span class="line">[root@iZj1fkye8uu7o0Z redis-4.0.6]# make</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>copy文件</strong></li>
+</ul>
+<p>编译完成后将src目录下这几个可执行文件copy到/usr/redis目录下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/redis</span><br><span class="line">cp redis-server  /usr/redis</span><br><span class="line">cp redis-benchmark /usr/redis</span><br><span class="line">cp redis-cli  /usr/redis</span><br><span class="line">cp redis.conf /usr/redis/</span><br><span class="line">cd /usr/redis</span><br></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z redis]# ls</span><br><span class="line">redis-benchmark  redis-cli  redis.conf  redis-server</span><br><span class="line">[root@iZj1fkye8uu7o0Z redis]# pwd</span><br><span class="line">/usr/redis</span><br><span class="line">[root@iZj1fkye8uu7o0Z redis]#</span><br></pre></td></tr></table></figure>
+<p>-<strong>启动redis</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z redis]# ./redis-server </span><br><span class="line">2358:C 18 Jan 13:59:50.867 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span><br><span class="line">2358:C 18 Jan 13:59:50.867 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=2358, just started</span><br></pre></td></tr></table></figure>
+<p>切记这个窗口不要关闭，然后再开一个窗口执行客户端命令</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z ~]# cd /usr/redis/</span><br><span class="line">[root@iZj1fkye8uu7o0Z redis]# ./redis-cli </span><br><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6379</span>&gt; set key <span class="string">'hello world'</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6379</span>&gt; get key</span><br><span class="line"><span class="string">"hello world"</span></span><br><span class="line"><span class="number">127.0</span>.0.1:<span class="number">6379</span>&gt;</span><br></pre></td></tr></table></figure>
+<p><code>set</code>命令保存一个键值对为 <code>key——hello world</code></p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
 <li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
@@ -820,7 +840,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.7k</span>
+    <span title="Site words total count">16.0k</span>
   
 </div>
 
