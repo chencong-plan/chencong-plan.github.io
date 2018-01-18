@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chencong-plan.github.io/"/>
-  <updated>2018-01-14T11:51:54.151Z</updated>
+  <updated>2018-01-18T02:47:41.403Z</updated>
   <id>https://chencong-plan.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何安装redis和简单使用</title>
+    <link href="https://chencong-plan.github.io/2018/01/18/first-redis/"/>
+    <id>https://chencong-plan.github.io/2018/01/18/first-redis/</id>
+    <published>2018-01-18T01:30:03.000Z</published>
+    <updated>2018-01-18T02:47:41.403Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;在github上有个小项目，spring+springMVC+mybatis搭建的&lt;/p&gt;
+&lt;/blockquot
+      
+    
+    </summary>
+    
+      <category term="redis" scheme="https://chencong-plan.github.io/categories/redis/"/>
+    
+    
+      <category term="linux" scheme="https://chencong-plan.github.io/tags/linux/"/>
+    
+      <category term="redis" scheme="https://chencong-plan.github.io/tags/redis/"/>
+    
+  </entry>
   
   <entry>
     <title>简单总结下服务器响应类的封装</title>
@@ -45,7 +72,7 @@
     <link href="https://chencong-plan.github.io/2018/01/12/transacation-propagation/"/>
     <id>https://chencong-plan.github.io/2018/01/12/transacation-propagation/</id>
     <published>2018-01-12T06:23:45.000Z</published>
-    <updated>2018-01-14T11:49:09.884Z</updated>
+    <updated>2018-01-18T01:36:32.306Z</updated>
     
     <summary type="html">
     
@@ -87,9 +114,9 @@
       <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
-    
       <category term="InsertionSort" scheme="https://chencong-plan.github.io/tags/InsertionSort/"/>
+    
+      <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
     
       <category term="插入排序" scheme="https://chencong-plan.github.io/tags/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
     
@@ -165,9 +192,9 @@
       <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
-    
       <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
     
       <category term="选择排序" scheme="https://chencong-plan.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
@@ -194,9 +221,9 @@
       <category term="算法学习" scheme="https://chencong-plan.github.io/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
-    
       <category term="线性结构" scheme="https://chencong-plan.github.io/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="SelectionSort" scheme="https://chencong-plan.github.io/tags/SelectionSort/"/>
     
       <category term="选择排序" scheme="https://chencong-plan.github.io/tags/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
     
