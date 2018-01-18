@@ -90,7 +90,11 @@
 <meta property="og:description" content="前言 在github上有个小项目，spring+springMVC+mybatis搭建的秒杀系统，简单的模拟秒杀、减库存、避免重复秒杀等问题。同时使用redis作为缓存、Protostuff作为序列化工具。传送门 现在就来简单记录下安装redis和使用的方法。  下载windows平台下载Windows平台下官方并不支持redis下载的，只是在github上微软自己针对Windows平台开发了。h">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_ms_redis.png">
-<meta property="og:updated_time" content="2018-01-18T05:31:03.304Z">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_3.png">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_1.png">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_4.png">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_server.png">
+<meta property="og:updated_time" content="2018-01-18T05:43:15.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何安装redis和简单使用">
 <meta name="twitter:description" content="前言 在github上有个小项目，spring+springMVC+mybatis搭建的秒杀系统，简单的模拟秒杀、减库存、避免重复秒杀等问题。同时使用redis作为缓存、Protostuff作为序列化工具。传送门 现在就来简单记录下安装redis和使用的方法。  下载windows平台下载Windows平台下官方并不支持redis下载的，只是在github上微软自己针对Windows平台开发了。h">
@@ -347,7 +351,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-18T13:31:03+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-18T13:43:15+08:00">
                 2018-01-18
               </time>
             
@@ -419,7 +423,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  409
+                  494
                 </span>
               
 
@@ -465,18 +469,31 @@
 <p>可能上面github下载地址速度很慢。</p>
 <p>我做了一个备份，方便大家下载</p>
 <ul>
-<li>解压版</li>
+<li><strong>解压版</strong></li>
 </ul>
 <p><a href="http://osal57kgi.bkt.clouddn.com/redis-64.rar" target="_blank" rel="noopener">解压版下载</a></p>
 <ul>
-<li>安装版</li>
+<li><strong>解压版</strong></li>
 </ul>
 <p><a href="http://osal57kgi.bkt.clouddn.com/Redis-x64-3.2.100.msi" target="_blank" rel="noopener">安装版下载</a></p>
 <h3 id="Linux平台下载"><a href="#Linux平台下载" class="headerlink" title="Linux平台下载"></a>Linux平台下载</h3><p>linux平台下载直接使用<code>wget</code>命令下载。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z ~]# wget http://download.redis.io/releases/redis-4.0.6.tar.gz</span><br><span class="line">--<span class="number">2018</span>-<span class="number">01</span>-<span class="number">18</span> <span class="number">13</span>:<span class="number">27</span>:<span class="number">29</span>--  http:<span class="comment">//download.redis.io/releases/redis-4.0.6.tar.gz</span></span><br><span class="line">Resolving download.redis.io (download.redis.io)... <span class="number">109.74</span>.203.151</span><br><span class="line">Connecting to download.redis.io (download.redis.io)|<span class="number">109.74</span>.203.151|:<span class="number">80</span>... connected.</span><br><span class="line">HTTP request sent, awaiting response... <span class="number">200</span> OK</span><br><span class="line">Length: <span class="number">1723533</span> (<span class="number">1.6</span>M) [application/x-gzip]</span><br><span class="line">Saving to: ‘redis-<span class="number">4.0</span>.6.tar.gz.1’</span><br><span class="line"></span><br><span class="line"><span class="number">100</span>%[====================================================================================================================&gt;] <span class="number">1</span>,<span class="number">723</span>,<span class="number">533</span>   <span class="number">1.10</span>MB/s   in <span class="number">1.5</span>s   </span><br><span class="line"></span><br><span class="line"><span class="number">2018</span>-<span class="number">01</span>-<span class="number">18</span> <span class="number">13</span>:<span class="number">27</span>:<span class="number">32</span> (<span class="number">1.10</span> MB/s) - ‘redis-<span class="number">4.0</span>.6.tar.gz.1’ saved [<span class="number">1723533</span>/<span class="number">1723533</span>]</span><br></pre></td></tr></table></figure>
 <p>查看自己下载的内容</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@iZj1fkye8uu7o0Z ~]# ll redis-4.0.6.tar.gz</span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">1723533</span> Dec  <span class="number">5</span> <span class="number">01</span>:<span class="number">02</span> redis-<span class="number">4.0</span>.6.tar.gz</span><br><span class="line">[root@iZj1fkye8uu7o0Z ~]#</span><br></pre></td></tr></table></figure>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Windows平台安装"><a href="#Windows平台安装" class="headerlink" title="Windows平台安装"></a>Windows平台安装</h3><h3 id="Linux平台安装"><a href="#Linux平台安装" class="headerlink" title="Linux平台安装"></a>Linux平台安装</h3><h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="Windows平台安装"><a href="#Windows平台安装" class="headerlink" title="Windows平台安装"></a>Windows平台安装</h3><ul>
+<li><strong>安装版</strong></li>
+</ul>
+<p>Windows下安装起始很简单的。双击运行，选择安装路径，默认端口号。finish完事。</p>
+<p><img src="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_3.png" alt="安装"></p>
+<p><img src="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_1.png" alt="端口号"></p>
+<p><img src="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_4.png" alt="安装"></p>
+<p>从Windows的<code>【服务】</code>当中可以查看<code>redis</code>服务在运行。</p>
+<p><img src="http://osal57kgi.bkt.clouddn.com/first_redis_windows_setup_server.png" alt="服务"></p>
+<ul>
+<li><strong>解压版</strong></li>
+</ul>
+<p>解压版只需要使用<code>CMD</code>命令，进入解压目录，然后将<code>redis</code>服务添加进入系统服务就行了。</p>
+<h3 id="Linux平台安装"><a href="#Linux平台安装" class="headerlink" title="Linux平台安装"></a>Linux平台安装</h3><h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
 <li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
@@ -803,7 +820,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.6k</span>
+    <span title="Site words total count">15.7k</span>
   
 </div>
 
