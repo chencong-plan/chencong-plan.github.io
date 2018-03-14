@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java封装,redis,框架,spring," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="聪聪的独立博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言 最近忙着公司的项目，没有时间来打理自己的小窝;毕业设计也开始了，在这里也慢慢记载一些做毕业设计过程当中使用到的、学习到的、值得思考的知识和细节。方便日后学习、同时也分享给大家。  maven 环境隔离实际项目开发当中我们会用到不止一下三种环境，开发环境、测试环境、生产环境。使用maven将各个环境进行隔离，方便开发、同时也方便上线。让因为配置文件不一致、环境没有更换这些问题导致项目异常不存在">
+<meta name="keywords" content="Java封装,redis,框架,spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记毕业设计学习之路">
+<meta property="og:url" content="https://chencong-plan.github.io/2018/03/14/mmall-beta/index.html">
+<meta property="og:site_name" content="聪聪的独立博客">
+<meta property="og:description" content="前言 最近忙着公司的项目，没有时间来打理自己的小窝;毕业设计也开始了，在这里也慢慢记载一些做毕业设计过程当中使用到的、学习到的、值得思考的知识和细节。方便日后学习、同时也分享给大家。  maven 环境隔离实际项目开发当中我们会用到不止一下三种环境，开发环境、测试环境、生产环境。使用maven将各个环境进行隔离，方便开发、同时也方便上线。让因为配置文件不一致、环境没有更换这些问题导致项目异常不存在">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-14T13:13:15.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记毕业设计学习之路">
+<meta name="twitter:description" content="前言 最近忙着公司的项目，没有时间来打理自己的小窝;毕业设计也开始了，在这里也慢慢记载一些做毕业设计过程当中使用到的、学习到的、值得思考的知识和细节。方便日后学习、同时也分享给大家。  maven 环境隔离实际项目开发当中我们会用到不止一下三种环境，开发环境、测试环境、生产环境。使用maven将各个环境进行隔离，方便开发、同时也方便上线。让因为配置文件不一致、环境没有更换这些问题导致项目异常不存在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chencong-plan.github.io/2018/03/14/mmall-beta/"/>
+
+
+
+
+
+  <title>记毕业设计学习之路 | 聪聪的独立博客</title>
+  
+<style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?042a886f72a663c61ed2f77aeae32cb7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <div class="forkme">
+     <a target="_blank" href="https://github.com/chencong-plan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+    </div>
+ 
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">聪聪的独立博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">挥舞这本子，做个ccoder</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-messagesboard">
+          <a href="/messagesBoard/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/03/14/mmall-beta/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="聪聪不匆匆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="聪聪的独立博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记毕业设计学习之路</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T20:43:31+08:00">
+                2018-03-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-14T21:13:15+08:00">
+                2018-03-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/项目日志/" itemprop="url" rel="index">
+                    <span itemprop="name">项目日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/14/mmall-beta/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/14/mmall-beta/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2018/03/14/mmall-beta/" class="leancloud_visitors" data-flag-title="记毕业设计学习之路">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>最近忙着公司的项目，没有时间来打理自己的小窝;毕业设计也开始了，在这里也慢慢记载一些做毕业设计过程当中使用到的、学习到的、值得思考的知识和细节。方便日后学习、同时也分享给大家。</p>
+</blockquote>
+<h2 id="maven-环境隔离"><a href="#maven-环境隔离" class="headerlink" title="maven 环境隔离"></a><strong>maven 环境隔离</strong></h2><p>实际项目开发当中我们会用到不止一下三种环境，开发环境、测试环境、生产环境。使用maven将各个环境进行隔离，方便开发、同时也方便上线。让因为配置文件不一致、环境没有更换这些问题导致项目异常不存在。</p>
+<ul>
+<li><code>dev</code>(开发环境) </li>
+<li><code>beta</code>(测试环境) </li>
+<li><code>prod</code>(生产环境) </li>
+</ul>
+<h2 id="Redis学习"><a href="#Redis学习" class="headerlink" title="Redis学习"></a>Redis学习</h2><h3 id="redis安装（window-linux）"><a href="#redis安装（window-linux）" class="headerlink" title="redis安装（window/linux）"></a>redis安装（window/linux）</h3><p>关于redis的安装，可以参考前一篇文章<a href="https://ccoder.cc/2018/01/18/first-redis/" target="_blank" rel="noopener"><strong>如何安装redis和简单使用</strong></a></p>
+<h3 id="redis数据结构-基本命令"><a href="#redis数据结构-基本命令" class="headerlink" title="redis数据结构/基本命令"></a>redis数据结构/基本命令</h3><h3 id="键命令"><a href="#键命令" class="headerlink" title="键命令"></a>键命令</h3><h2 id="PropertiesUtil工具类"><a href="#PropertiesUtil工具类" class="headerlink" title="PropertiesUtil工具类"></a>PropertiesUtil工具类</h2><h3 id="对PropertiesUtil进行了优化性的封装，提供获取Integer-Boolean-String等不同类型配置文件value的方法"><a href="#对PropertiesUtil进行了优化性的封装，提供获取Integer-Boolean-String等不同类型配置文件value的方法" class="headerlink" title="对PropertiesUtil进行了优化性的封装，提供获取Integer Boolean String等不同类型配置文件value的方法"></a>对PropertiesUtil进行了优化性的封装，提供获取<code>Integer</code> <code>Boolean</code> <code>String</code>等不同类型配置文件value的方法</h3><h2 id="redisPool连接池"><a href="#redisPool连接池" class="headerlink" title="redisPool连接池"></a>redisPool连接池</h2><h3 id="redisPool连接池封装"><a href="#redisPool连接池封装" class="headerlink" title="redisPool连接池封装"></a>redisPool连接池封装</h3><ul>
+<li><code>redisPool</code>连接池的完善</li>
+<li>获取jedis对象<code>getRedis()</code></li>
+<li>返回资源<code>returnResource()</code></li>
+<li><code>returnBrokenResource()</code>使用</li>
+</ul>
+<h3 id="学习jedis源码"><a href="#学习jedis源码" class="headerlink" title="学习jedis源码"></a>学习jedis源码</h3><h2 id="lombok工具"><a href="#lombok工具" class="headerlink" title="lombok工具"></a>lombok工具</h2><h3 id="IDE工具安装lombok工具"><a href="#IDE工具安装lombok工具" class="headerlink" title="IDE工具安装lombok工具"></a>IDE工具安装lombok工具</h3><h3 id="引入其依赖-使用注解"><a href="#引入其依赖-使用注解" class="headerlink" title="引入其依赖,使用注解"></a>引入其依赖,使用注解</h3><h3 id="使用lombok注解"><a href="#使用lombok注解" class="headerlink" title="使用lombok注解"></a>使用lombok注解</h3><ul>
+<li><code>@Sl4j</code></li>
+<li><code>@Setter</code> </li>
+<li><code>@Getter</code> </li>
+<li><code>@Data</code></li>
+<li>区分<code>@Data</code>和 <code>@Setter``@Getter</code>使用有什么区别，各自含义</li>
+</ul>
+<h2 id="RedisPoolUtil工具类"><a href="#RedisPoolUtil工具类" class="headerlink" title="RedisPoolUtil工具类"></a>RedisPoolUtil工具类</h2><h3 id="RedisPoolUtil工具类封装"><a href="#RedisPoolUtil工具类封装" class="headerlink" title="RedisPoolUtil工具类封装"></a>RedisPoolUtil工具类封装</h3><h3 id="提供对Redis的set-get-del-setEx-expire等操作的方法"><a href="#提供对Redis的set-get-del-setEx-expire等操作的方法" class="headerlink" title="提供对Redis的set get del setEx expire等操作的方法"></a>提供对Redis的set get del setEx expire等操作的方法</h3><h2 id="JsonUtil工具类"><a href="#JsonUtil工具类" class="headerlink" title="JsonUtil工具类"></a>JsonUtil工具类</h2><h3 id="JsonUtil工具类封装"><a href="#JsonUtil工具类封装" class="headerlink" title="JsonUtil工具类封装"></a>JsonUtil工具类封装</h3><p>封装<code>JsonUtil</code>工具类，提供json和object之间相互转换方法，同时提供json转List<user> Map<user,category>等复杂集合对象的转换方法</user,category></user></p>
+<ul>
+<li><p>json和object之间相互转换方法</p>
+</li>
+<li><p>json转List<user> Map<user,category>等复杂集合对象的转换方法</user,category></user></p>
+</li>
+</ul>
+<h3 id="JsonUtil中objectMapper当中各种属性的配置"><a href="#JsonUtil中objectMapper当中各种属性的配置" class="headerlink" title="JsonUtil中objectMapper当中各种属性的配置"></a>JsonUtil中objectMapper当中各种属性的配置</h3><ul>
+<li><code>objectMapper.setSerializationInclusion(Inclusion.ALWAYS); 对象的所有字段全部列入序列化</code>  </li>
+<li><code>objectMapper.configure(SerializationConfig.Feature.WRITE_DATES_AS_TIMESTAMPS, false); 取消默认转换timestamps</code></li>
+<li><code>objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false); 忽略空bean转json错误</code></li>
+<li><code>objectMapper.setDateFormat(new SimpleDateFormat(DateTimeUtil.STANDARD_FORMAT)); 所有的日期格式都统一为以下格式：yyyy-MM-dd HH:mm:ss</code></li>
+<li><code>objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false); 反序列化时，忽略在json字符串当中存在，但是在java对象当中不存在的对应属性的情况，防止错误</code></li>
+</ul>
+<h2 id="Tomcat集群"><a href="#Tomcat集群" class="headerlink" title="Tomcat集群"></a>Tomcat集群</h2><p>在<code>IDEA</code>当中启动两个<code>Tomcat</code>，来模拟<code>Tomcat</code>集群。</p>
+<h3 id="An-invalid-domain-dianpoint-com-was-specified-for-this-cookie-这个异常，使用cookie时候，Tomcat8和Tomcat7不太一样。"><a href="#An-invalid-domain-dianpoint-com-was-specified-for-this-cookie-这个异常，使用cookie时候，Tomcat8和Tomcat7不太一样。" class="headerlink" title="An invalid domain [.dianpoint.com] was specified for this cookie 这个异常，使用cookie时候，Tomcat8和Tomcat7不太一样。"></a><code>An invalid domain [.dianpoint.com] was specified for this cookie</code> 这个异常，使用cookie时候，Tomcat8和Tomcat7不太一样。</h3><ul>
+<li><p>解决方法：在Tomcat8的conf/content.xml当中添加如下配置<br><code>&lt;CookieProcessor className=&quot;org.apache.tomcat.util.http.LegacyCookieProcessor&quot; /&gt;</code></p>
+<p><a href="https://stackoverflow.com/questions/42524002/an-invalid-domain-was-specified-for-this-cookie" target="_blank" rel="noopener">An invalid domain was specified for this cookie</a></p>
+<p><a href="https://stackoverflow.com/questions/38696081/how-to-change-cookie-processor-to-legacycookieprocessor-in-tomcat-8" target="_blank" rel="noopener">How to change Cookie Processor to LegacyCookieProcessor in tomcat 8</a></p>
+</li>
+</ul>
+<h2 id="CookieUtil工具类封装"><a href="#CookieUtil工具类封装" class="headerlink" title="CookieUtil工具类封装"></a>CookieUtil工具类封装</h2><h3 id="熟悉在客户端种cookie的domain跨域问题"><a href="#熟悉在客户端种cookie的domain跨域问题" class="headerlink" title="熟悉在客户端种cookie的domain跨域问题"></a>熟悉在客户端种cookie的domain跨域问题</h3><h3 id="封装CookieUtil"><a href="#封装CookieUtil" class="headerlink" title="封装CookieUtil"></a>封装<code>CookieUtil</code></h3><p>  封装常用对cookie操作的read write del方法</p>
+<ul>
+<li><code>String readLoginToken(HttpServletRequest request)</code> 读cookie操作</li>
+<li><code>void writeLoginToken(HttpServletResponse response, String token)</code> 写cookie操作</li>
+<li><code>void delLoginToken(HttpServletRequest request, HttpServletResponse response)</code> 删除cookie操作</li>
+</ul>
+<h2 id="单点登录Session共享"><a href="#单点登录Session共享" class="headerlink" title="单点登录Session共享"></a>单点登录Session共享</h2><h3 id="单点登录"><a href="#单点登录" class="headerlink" title="单点登录"></a>单点登录</h3><ul>
+<li><p><strong>登录操作</strong></p>
+<p>将用户登录成功之后的sessionId存入cookie取名为loginToken，同时将其存入redis当中，key=sessionId value=User实体的Json字符串，同时设置redis当中数据过期时间(用户登录过期时间)</p>
+</li>
+<li><p><strong>查看用户信息</strong></p>
+<p>从cookie当中获取loginToken,如果loginToken为null则说明用户未登录，直接返回,然后从redis当中获取key=loginToken的value,并将其Json反序列化成User对象，然后返回</p>
+</li>
+<li><p><strong>登出操作</strong></p>
+<p>从cookie当中获取到loginToken，然后从redis当中key=loginToken的value</p>
+</li>
+<li><p><strong>存在问题</strong></p>
+<p>loginToken存储在cookie当中存在有效时间，现在不能满足，用户进行除登出操作之外的其他请求时自动刷新loginToken的过期时间，用户登录一定时间到期后(期间无论是否进行其他操作)<br>都会让用户再次登录。而我们需要的是，在有效期之内只要用户发送了除登出操作之外的请求，都会自动更新这个过期时间</p>
+</li>
+</ul>
+<h3 id="解决上述单点登录存在问题"><a href="#解决上述单点登录存在问题" class="headerlink" title="解决上述单点登录存在问题"></a>解决上述<code>单点登录</code>存在问题</h3><ul>
+<li><p><strong>使用原生过滤器</strong></p>
+<p><code>SessionExpireFilter</code>就是为了解决用发送请求时重置种下的loginToken 过期时间，这样就可以避免用户登录后30分钟有需要再次重新登录。<br>现在只存在登录成功后30分钟之内不发送任何请求，redis当中的loginToken则会过期</p>
+</li>
+</ul>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<ul>
+<li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
+<li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
+<li><a href="https://github.com/chencong-plan" target="_blank" rel="noopener">Github@ccoder</a></li>
+<li><a href="mailto:admin@ccoder.top" target="_blank" rel="noopener">Email@ccoder</a> <em>or</em> <a href="mailto:chencong3139@gmail.com" target="_blank" rel="noopener">Gmail@ccoder</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat_pay.png" alt="聪聪不匆匆 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali_pay.png" alt="聪聪不匆匆 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    聪聪不匆匆
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chencong-plan.github.io/2018/03/14/mmall-beta/" title="记毕业设计学习之路">https://chencong-plan.github.io/2018/03/14/mmall-beta/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java封装/" rel="tag"><i class="fa fa-tag"></i> Java封装</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          
+            <a href="/tags/框架/" rel="tag"><i class="fa fa-tag"></i> 框架</a>
+          
+            <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i> spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/13/cache-java/" rel="next" title="Map下的精简Java缓存类设计">
+                <i class="fa fa-chevron-left"></i> Map下的精简Java缓存类设计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.png"
+                alt="聪聪不匆匆" />
+            
+              <p class="site-author-name" itemprop="name">聪聪不匆匆</p>
+              <p class="site-description motion-element" itemprop="description">hello，every body!~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/chencong-plan" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:1042738887@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-globe"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://blog.csdn.net/chencong3139" target="_blank" title="CSDN">
+                    
+                      <i class="fa fa-fw fa-globe"></i>CSDN</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/chencong3139" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=496620009&auto=0&height=66"></iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven-环境隔离"><span class="nav-number">2.</span> <span class="nav-text"><a href="#maven-&#x73AF;&#x5883;&#x9694;&#x79BB;" class="headerlink" title="maven &#x73AF;&#x5883;&#x9694;&#x79BB;"></a><strong>maven &#x73AF;&#x5883;&#x9694;&#x79BB;</strong></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis学习"><span class="nav-number">3.</span> <span class="nav-text"><a href="#Redis&#x5B66;&#x4E60;" class="headerlink" title="Redis&#x5B66;&#x4E60;"></a>Redis&#x5B66;&#x4E60;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redis安装（window-linux）"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#redis&#x5B89;&#x88C5;&#xFF08;window-linux&#xFF09;" class="headerlink" title="redis&#x5B89;&#x88C5;&#xFF08;window/linux&#xFF09;"></a>redis&#x5B89;&#x88C5;&#xFF08;window/linux&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#redis数据结构-基本命令"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#redis&#x6570;&#x636E;&#x7ED3;&#x6784;-&#x57FA;&#x672C;&#x547D;&#x4EE4;" class="headerlink" title="redis&#x6570;&#x636E;&#x7ED3;&#x6784;/&#x57FA;&#x672C;&#x547D;&#x4EE4;"></a>redis&#x6570;&#x636E;&#x7ED3;&#x6784;/&#x57FA;&#x672C;&#x547D;&#x4EE4;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键命令"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#&#x952E;&#x547D;&#x4EE4;" class="headerlink" title="&#x952E;&#x547D;&#x4EE4;"></a>&#x952E;&#x547D;&#x4EE4;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PropertiesUtil工具类"><span class="nav-number">4.</span> <span class="nav-text"><a href="#PropertiesUtil&#x5DE5;&#x5177;&#x7C7B;" class="headerlink" title="PropertiesUtil&#x5DE5;&#x5177;&#x7C7B;"></a>PropertiesUtil&#x5DE5;&#x5177;&#x7C7B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对PropertiesUtil进行了优化性的封装，提供获取Integer-Boolean-String等不同类型配置文件value的方法"><span class="nav-number">4.1.</span> <span class="nav-text"><a href="#&#x5BF9;PropertiesUtil&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#x6027;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B;&#x83B7;&#x53D6;Integer-Boolean-String&#x7B49;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;value&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5BF9;PropertiesUtil&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#x6027;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B;&#x83B7;&#x53D6;Integer Boolean String&#x7B49;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;value&#x7684;&#x65B9;&#x6CD5;"></a>&#x5BF9;PropertiesUtil&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#x6027;&#x7684;&#x5C01;&#x88C5;&#xFF0C;&#x63D0;&#x4F9B;&#x83B7;&#x53D6;<code>Integer</code> <code>Boolean</code> <code>String</code>&#x7B49;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;value&#x7684;&#x65B9;&#x6CD5;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redisPool连接池"><span class="nav-number">5.</span> <span class="nav-text"><a href="#redisPool&#x8FDE;&#x63A5;&#x6C60;" class="headerlink" title="redisPool&#x8FDE;&#x63A5;&#x6C60;"></a>redisPool&#x8FDE;&#x63A5;&#x6C60;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redisPool连接池封装"><span class="nav-number">5.1.</span> <span class="nav-text"><a href="#redisPool&#x8FDE;&#x63A5;&#x6C60;&#x5C01;&#x88C5;" class="headerlink" title="redisPool&#x8FDE;&#x63A5;&#x6C60;&#x5C01;&#x88C5;"></a>redisPool&#x8FDE;&#x63A5;&#x6C60;&#x5C01;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习jedis源码"><span class="nav-number">5.2.</span> <span class="nav-text"><a href="#&#x5B66;&#x4E60;jedis&#x6E90;&#x7801;" class="headerlink" title="&#x5B66;&#x4E60;jedis&#x6E90;&#x7801;"></a>&#x5B66;&#x4E60;jedis&#x6E90;&#x7801;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lombok工具"><span class="nav-number">6.</span> <span class="nav-text"><a href="#lombok&#x5DE5;&#x5177;" class="headerlink" title="lombok&#x5DE5;&#x5177;"></a>lombok&#x5DE5;&#x5177;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IDE工具安装lombok工具"><span class="nav-number">6.1.</span> <span class="nav-text"><a href="#IDE&#x5DE5;&#x5177;&#x5B89;&#x88C5;lombok&#x5DE5;&#x5177;" class="headerlink" title="IDE&#x5DE5;&#x5177;&#x5B89;&#x88C5;lombok&#x5DE5;&#x5177;"></a>IDE&#x5DE5;&#x5177;&#x5B89;&#x88C5;lombok&#x5DE5;&#x5177;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入其依赖-使用注解"><span class="nav-number">6.2.</span> <span class="nav-text"><a href="#&#x5F15;&#x5165;&#x5176;&#x4F9D;&#x8D56;-&#x4F7F;&#x7528;&#x6CE8;&#x89E3;" class="headerlink" title="&#x5F15;&#x5165;&#x5176;&#x4F9D;&#x8D56;,&#x4F7F;&#x7528;&#x6CE8;&#x89E3;"></a>&#x5F15;&#x5165;&#x5176;&#x4F9D;&#x8D56;,&#x4F7F;&#x7528;&#x6CE8;&#x89E3;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用lombok注解"><span class="nav-number">6.3.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;lombok&#x6CE8;&#x89E3;" class="headerlink" title="&#x4F7F;&#x7528;lombok&#x6CE8;&#x89E3;"></a>&#x4F7F;&#x7528;lombok&#x6CE8;&#x89E3;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RedisPoolUtil工具类"><span class="nav-number">7.</span> <span class="nav-text"><a href="#RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;" class="headerlink" title="RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;"></a>RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RedisPoolUtil工具类封装"><span class="nav-number">7.1.</span> <span class="nav-text"><a href="#RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;" class="headerlink" title="RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;"></a>RedisPoolUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供对Redis的set-get-del-setEx-expire等操作的方法"><span class="nav-number">7.2.</span> <span class="nav-text"><a href="#&#x63D0;&#x4F9B;&#x5BF9;Redis&#x7684;set-get-del-setEx-expire&#x7B49;&#x64CD;&#x4F5C;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x63D0;&#x4F9B;&#x5BF9;Redis&#x7684;set get del setEx expire&#x7B49;&#x64CD;&#x4F5C;&#x7684;&#x65B9;&#x6CD5;"></a>&#x63D0;&#x4F9B;&#x5BF9;Redis&#x7684;set get del setEx expire&#x7B49;&#x64CD;&#x4F5C;&#x7684;&#x65B9;&#x6CD5;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JsonUtil工具类"><span class="nav-number">8.</span> <span class="nav-text"><a href="#JsonUtil&#x5DE5;&#x5177;&#x7C7B;" class="headerlink" title="JsonUtil&#x5DE5;&#x5177;&#x7C7B;"></a>JsonUtil&#x5DE5;&#x5177;&#x7C7B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JsonUtil工具类封装"><span class="nav-number">8.1.</span> <span class="nav-text"><a href="#JsonUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;" class="headerlink" title="JsonUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;"></a>JsonUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JsonUtil中objectMapper当中各种属性的配置"><span class="nav-number">8.2.</span> <span class="nav-text"><a href="#JsonUtil&#x4E2D;objectMapper&#x5F53;&#x4E2D;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x7684;&#x914D;&#x7F6E;" class="headerlink" title="JsonUtil&#x4E2D;objectMapper&#x5F53;&#x4E2D;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x7684;&#x914D;&#x7F6E;"></a>JsonUtil&#x4E2D;objectMapper&#x5F53;&#x4E2D;&#x5404;&#x79CD;&#x5C5E;&#x6027;&#x7684;&#x914D;&#x7F6E;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat集群"><span class="nav-number">9.</span> <span class="nav-text"><a href="#Tomcat&#x96C6;&#x7FA4;" class="headerlink" title="Tomcat&#x96C6;&#x7FA4;"></a>Tomcat&#x96C6;&#x7FA4;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#An-invalid-domain-dianpoint-com-was-specified-for-this-cookie-这个异常，使用cookie时候，Tomcat8和Tomcat7不太一样。"><span class="nav-number">9.1.</span> <span class="nav-text"><a href="#An-invalid-domain-dianpoint-com-was-specified-for-this-cookie-&#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x4F7F;&#x7528;cookie&#x65F6;&#x5019;&#xFF0C;Tomcat8&#x548C;Tomcat7&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x3002;" class="headerlink" title="An invalid domain [.dianpoint.com] was specified for this cookie &#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x4F7F;&#x7528;cookie&#x65F6;&#x5019;&#xFF0C;Tomcat8&#x548C;Tomcat7&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x3002;"></a><code>An invalid domain [.dianpoint.com] was specified for this cookie</code> &#x8FD9;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x4F7F;&#x7528;cookie&#x65F6;&#x5019;&#xFF0C;Tomcat8&#x548C;Tomcat7&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x3002;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CookieUtil工具类封装"><span class="nav-number">10.</span> <span class="nav-text"><a href="#CookieUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;" class="headerlink" title="CookieUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;"></a>CookieUtil&#x5DE5;&#x5177;&#x7C7B;&#x5C01;&#x88C5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#熟悉在客户端种cookie的domain跨域问题"><span class="nav-number">10.1.</span> <span class="nav-text"><a href="#&#x719F;&#x6089;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x79CD;cookie&#x7684;domain&#x8DE8;&#x57DF;&#x95EE;&#x9898;" class="headerlink" title="&#x719F;&#x6089;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x79CD;cookie&#x7684;domain&#x8DE8;&#x57DF;&#x95EE;&#x9898;"></a>&#x719F;&#x6089;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x79CD;cookie&#x7684;domain&#x8DE8;&#x57DF;&#x95EE;&#x9898;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装CookieUtil"><span class="nav-number">10.2.</span> <span class="nav-text"><a href="#&#x5C01;&#x88C5;CookieUtil" class="headerlink" title="&#x5C01;&#x88C5;CookieUtil"></a>&#x5C01;&#x88C5;<code>CookieUtil</code></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单点登录Session共享"><span class="nav-number">11.</span> <span class="nav-text"><a href="#&#x5355;&#x70B9;&#x767B;&#x5F55;Session&#x5171;&#x4EAB;" class="headerlink" title="&#x5355;&#x70B9;&#x767B;&#x5F55;Session&#x5171;&#x4EAB;"></a>&#x5355;&#x70B9;&#x767B;&#x5F55;Session&#x5171;&#x4EAB;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单点登录"><span class="nav-number">11.1.</span> <span class="nav-text"><a href="#&#x5355;&#x70B9;&#x767B;&#x5F55;" class="headerlink" title="&#x5355;&#x70B9;&#x767B;&#x5F55;"></a>&#x5355;&#x70B9;&#x767B;&#x5F55;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决上述单点登录存在问题"><span class="nav-number">11.2.</span> <span class="nav-text"><a href="#&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x5355;&#x70B9;&#x767B;&#x5F55;&#x5B58;&#x5728;&#x95EE;&#x9898;" class="headerlink" title="&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x5355;&#x70B9;&#x767B;&#x5F55;&#x5B58;&#x5728;&#x95EE;&#x9898;"></a>&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;<code>&#x5355;&#x70B9;&#x767B;&#x5F55;</code>&#x5B58;&#x5728;&#x95EE;&#x9898;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">12.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">聪聪不匆匆</span>
+
+<!--以下3行为一条竖线和Coding Page-->
+  <div class="powered-by">  
+  </div>
+  <span>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></span>
+</div>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count"></span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytb0COPK';
+      var conf = 'f4ec61439cc0436460d4314634c8eb78';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ydueKuP9DBwlcJdmt9zWF1VV-gzGzoHsz", "QfeANi9TLulHoKgHq6V0XJ0U");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
