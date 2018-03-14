@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java封装," />
+  <meta name="keywords" content="关于我,安静的角落," />
 
 
 
@@ -81,18 +81,26 @@
 
 
 
-<meta name="description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
-<meta name="keywords" content="Java封装">
+<meta name="description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
+<meta name="keywords" content="关于我,安静的角落">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单总结下服务器响应类的封装">
-<meta property="og:url" content="https://chencong-plan.github.io/2018/01/13/package-response/index.html">
+<meta property="og:title" content="一个安静的小窝">
+<meta property="og:url" content="https://chencong-plan.github.io/2018/01/19/intership-diaries/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
-<meta property="og:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
+<meta property="og:description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-14T11:51:54.151Z">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026288041.jpeg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026304624.jpeg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026323192.jpeg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_111422.jpg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_121915.jpg">
+<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_111604.jpg">
+<meta property="og:updated_time" content="2018-01-30T06:58:50.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简单总结下服务器响应类的封装">
-<meta name="twitter:description" content="前言 还记得之前做个小应用的时候需要返回json数据给前台。那时候只需要判断验证是否成功，如果不成功就返回message消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。 如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。  演变开始的">
+<meta name="twitter:title" content="一个安静的小窝">
+<meta name="twitter:description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
+<meta name="twitter:image" content="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg">
 
 
 
@@ -122,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://chencong-plan.github.io/2018/01/13/package-response/"/>
+  <link rel="canonical" href="https://chencong-plan.github.io/2018/01/19/intership-diaries/"/>
 
 
 
 
 
-  <title>简单总结下服务器响应类的封装 | 聪聪的独立博客</title>
+  <title>一个安静的小窝 | 聪聪的独立博客</title>
   
 <style>
   .forkme{
@@ -300,7 +308,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/01/13/package-response/">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/01/19/intership-diaries/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="聪聪不匆匆">
@@ -317,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简单总结下服务器响应类的封装</h1>
+          <h1 class="post-title" itemprop="name headline">一个安静的小窝</h1>
         
 
         <div class="post-meta">
@@ -329,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T15:53:26+08:00">
-                2018-01-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T21:14:35+08:00">
+                2018-01-19
               </time>
             
 
@@ -345,8 +353,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-14T19:51:54+08:00">
-                2018-01-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-30T14:58:50+08:00">
+                2018-01-30
               </time>
             
           </span>
@@ -364,8 +372,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/封装方法/" itemprop="url" rel="index">
-                    <span itemprop="name">封装方法</span>
+                  <a href="/categories/生活中的点滴/" itemprop="url" rel="index">
+                    <span itemprop="name">生活中的点滴</span>
                   </a>
                 </span>
 
@@ -383,8 +391,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/01/13/package-response/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/01/13/package-response/" itemprop="commentsCount"></span>
+                <a href="/2018/01/19/intership-diaries/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/01/19/intership-diaries/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -392,7 +400,7 @@
 
           
           
-             <span id="/2018/01/13/package-response/" class="leancloud_visitors" data-flag-title="简单总结下服务器响应类的封装">
+             <span id="/2018/01/19/intership-diaries/" class="leancloud_visitors" data-flag-title="一个安静的小窝">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -455,22 +463,49 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>还记得之前做个小应用的时候需要返回<code>json</code>数据给前台。那时候只需要判断验证是否成功，如果不成功就返回<code>message</code>消息。并没有虑到返回数据，数据则是存入相应的域之中。随着做的业务复杂上升，接触的东西多了之后，那么我们所做的项目就需要前后台分离，或者所使用的接口当中都需要返回相应的状态、消息、数据。</p>
-<p>如何实际一个高可用的服务器响应类呢？今天就来总结下我是用过的一些服务器响应类吧。</p>
+<p>2018年1月19日21:16:45  今天周五，回到学校。</p>
+<p>想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。</p>
 </blockquote>
-<h2 id="演变"><a href="#演变" class="headerlink" title="演变"></a>演变</h2><h3 id="开始的开始"><a href="#开始的开始" class="headerlink" title="开始的开始"></a>开始的开始</h3><p> 最开始如何写一个服务器响应类呢？请求返回数据给前台<code>ajax</code>调用验证使用。</p>
-<p> 最直接的想法是一个状态<code>status</code>该请求需要验证的内容是否正确(成功),<code>message</code>根据状态返回相应的提示性描述语句。</p>
-<p>这是最开始我做东西时候最直观的想法吧，可能你会说到如果需要返回数据呢？我的回答是没有，数据都是放入<code>requestScope</code>当中，返回<code>modelAndView</code>。现就开看看这个代码吧。</p>
-<p>创建一个类作为响应对象，就叫做<code>ExecuteResult</code> </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> : ChenCong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> : Created in 21:11 2018/1/13</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExecuteResult</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Boolean status;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有点简陋，但是可以避免在代码当中重复写 <code>String result = &quot; &quot;</code> 等内容。就算做是一种进步吧，现在看看如何使用呢。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/deleteUser"</span>) </span><br><span class="line">	<span class="meta">@ResponseBody</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ExecuteResult <span class="title">deleteUser</span><span class="params">(String id)</span></span>&#123;</span><br><span class="line">		UserInfo user = <span class="keyword">this</span>.userInfoService.get(id);</span><br><span class="line">		user.setState(Conts.STATE_DELETE);</span><br><span class="line">		<span class="keyword">this</span>.userInfoService.update(user);</span><br><span class="line"></span><br><span class="line">		ExecuteResult result = <span class="keyword">new</span> ExecuteResult();</span><br><span class="line">		result.setMessage(<span class="string">"删除成功"</span>);</span><br><span class="line">		result.setStatus(<span class="keyword">true</span>);</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>这里是一个删除用户的的方法，只是将用户状态修改，然后返回一个封装了的<code>ExecuteResult</code>告诉前台ajax调用，得到<code>json</code>数据中<code>status</code>为<code>true</code>，<code>Message</code>为<code>删除成功</code>。</p>
-<h3 id="进步，能够返回数据"><a href="#进步，能够返回数据" class="headerlink" title="进步，能够返回数据"></a>进步，能够返回数据</h3><p>但是上面有问题，如果我们需要返回数据怎么办呢？最简单方法是在<code>ExecuteResult</code>这个封装类当中添加一个属性<code>T data</code>作为一个泛型返回，使用的时候后封装一个<code>VO</code>将需要返回的属性或者对象放入其中，然后将这个<code>VO</code>对象最为<code>ExecuteResult</code>中的属性<code>T  data</code>进行返回。</p>
-<p>那么上面的<code>ExecuteResult</code>就成了这样的了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> : ChenCong</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> : Created in 21:11 2018/1/13</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExecuteResult</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Boolean status;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用时候直接返回所需要的<code>VO</code>对象(<code>dto</code>)就行了。(<code>dto</code>是展示层和服务层之间传输数据的对象，对于绝大部分应用场景而言<code>dto</code>和<code>vo</code>属性一致，也就是<code>pojo</code>,这是实现层面的思想，对于设计层面而言，它们又担负着不同的角色).</p>
-<h3 id="通用，再次封装"><a href="#通用，再次封装" class="headerlink" title="通用，再次封装"></a>通用，再次封装</h3><p>绝大部分场景我们能够上面那样，但是<code>status</code>和<code>message</code>容易写成硬编码，如何对status和message进行封装呢，针对于不同的服务器状态返回不同的描述性语言,同时服务器还能够返回不同的数据。</p>
+<h2 id="滴滴答答"><a href="#滴滴答答" class="headerlink" title="滴滴答答"></a>滴滴答答</h2><blockquote>
+<p><strong>今天两个大男生和一帮小孩子在电影院看《公牛历险记》.</strong></p>
+</blockquote>
+<p>每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。</p>
+<p>周末好好休息，电影也看了。明天加油(<em>╹▽╹</em>)</p>
+<blockquote>
+<p><strong>2018年1月25日 项目进展第四天。</strong></p>
+</blockquote>
+<p>组员之间能够顺利，友好的沟通项目当中出现的问题。每天我会检查大家提交的代码，看看都有哪些问题，不规范的地方。加油</p>
+<p>有几天没有更新自己的项目了，仓库当中提交数量又降下来了…</p>
+<p>听到这首歌了，梦想加油</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=519941070&auto=0&height=66"></iframe>
+
+<blockquote>
+<p><strong>2018年1月26日 今天周五，雪还没融化</strong></p>
+</blockquote>
+<p>昨晚武汉市区就开始下雪了，路上有车追尾。群里说：二环高架上有很多车打滑追尾，出门在外，祝大家平安到家！</p>
+<p>早晨起来地面融雪已结冰，行人小心翼翼的，却又匆忙赶路。</p>
+<blockquote>
+<p><strong>看看这些雪吧</strong></p>
+</blockquote>
+<p><img src="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg" alt=""></p>
+<ul>
+<li>山下的小路<br><img src="http://osal57kgi.bkt.clouddn.com/1517026288041.jpeg" alt=""></li>
+</ul>
+<p><img src="http://osal57kgi.bkt.clouddn.com/1517026304624.jpeg" alt=""></p>
+<ul>
+<li><p>湖畔小路<br><img src="http://osal57kgi.bkt.clouddn.com/1517026323192.jpeg" alt=""></p>
+</li>
+<li><p>楼下，小泰迪玩雪<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_111422.jpg" alt=""></p>
+</li>
+<li><p>看被堆的雪人<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_121915.jpg" alt=""></p>
+</li>
+<li><p>出行的公交<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_111604.jpg" alt=""></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>周二 进展</strong></p>
+</blockquote>
+<p>这个项目进展到一半，也是最重要的时候。优化细节，统筹个成员之间代码，把握各个模块之间的功能规范。</p>
 <h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
@@ -527,7 +562,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://chencong-plan.github.io/2018/01/13/package-response/" title="简单总结下服务器响应类的封装">https://chencong-plan.github.io/2018/01/13/package-response/</a>
+    <a href="https://chencong-plan.github.io/2018/01/19/intership-diaries/" title="一个安静的小窝">https://chencong-plan.github.io/2018/01/19/intership-diaries/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -542,7 +577,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java封装/" rel="tag"><i class="fa fa-tag"></i> Java封装</a>
+            <a href="/tags/关于我/" rel="tag"><i class="fa fa-tag"></i> 关于我</a>
+          
+            <a href="/tags/安静的角落/" rel="tag"><i class="fa fa-tag"></i> 安静的角落</a>
           
         </div>
       
@@ -555,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/12/transacation-propagation/" rel="next" title="Spring篇——简单理解@Transactional注解中propagation的使用">
-                <i class="fa fa-chevron-left"></i> Spring篇——简单理解@Transactional注解中propagation的使用
+              <a href="/2018/01/18/first-redis/" rel="next" title="如何安装redis和简单使用">
+                <i class="fa fa-chevron-left"></i> 如何安装redis和简单使用
               </a>
             
           </div>
@@ -565,8 +602,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/18/first-redis/" rel="prev" title="如何安装redis和简单使用">
-                如何安装redis和简单使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/13/cache-java/" rel="prev" title="Map下的精简Java缓存类设计">
+                Map下的精简Java缓存类设计 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -753,7 +790,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演变"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6F14;&#x53D8;" class="headerlink" title="&#x6F14;&#x53D8;"></a>&#x6F14;&#x53D8;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始的开始"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;" class="headerlink" title="&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;"></a>&#x5F00;&#x59CB;&#x7684;&#x5F00;&#x59CB;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进步，能够返回数据"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x8FDB;&#x6B65;&#xFF0C;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x6570;&#x636E;" class="headerlink" title="&#x8FDB;&#x6B65;&#xFF0C;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x6570;&#x636E;"></a>&#x8FDB;&#x6B65;&#xFF0C;&#x80FD;&#x591F;&#x8FD4;&#x56DE;&#x6570;&#x636E;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通用，再次封装"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x901A;&#x7528;&#xFF0C;&#x518D;&#x6B21;&#x5C01;&#x88C5;" class="headerlink" title="&#x901A;&#x7528;&#xFF0C;&#x518D;&#x6B21;&#x5C01;&#x88C5;"></a>&#x901A;&#x7528;&#xFF0C;&#x518D;&#x6B21;&#x5C01;&#x88C5;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滴滴答答"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;" class="headerlink" title="&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;"></a>&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
             
 
           </div>
