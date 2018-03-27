@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="redis,缓存," />
+  <meta name="keywords" content="缓存,redis," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="前言 前面也有几篇文章提到了redis。关于redis连接池及Jedis封装API可以看这篇文章。redis连接池及常用API封装，如果你想下载安装redis可以看这篇文章，如何安装redis和简单使用. 那么这篇文章就会说一说Redis当中数据结构和常用的一些键命令。  Key(键)DEL 删除给定的一个或者多个key,不存在的key会被忽略。del key [key...]  时间复杂度：O(">
-<meta name="keywords" content="redis,缓存">
+<meta name="keywords" content="缓存,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis数据结构及键命令学习">
 <meta property="og:url" content="https://chencong-plan.github.io/2018/03/15/redis-study/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
 <meta property="og:description" content="前言 前面也有几篇文章提到了redis。关于redis连接池及Jedis封装API可以看这篇文章。redis连接池及常用API封装，如果你想下载安装redis可以看这篇文章，如何安装redis和简单使用. 那么这篇文章就会说一说Redis当中数据结构和常用的一些键命令。  Key(键)DEL 删除给定的一个或者多个key,不存在的key会被忽略。del key [key...]  时间复杂度：O(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T12:20:49.498Z">
+<meta property="og:updated_time" content="2018-03-27T12:44:24.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis数据结构及键命令学习">
 <meta name="twitter:description" content="前言 前面也有几篇文章提到了redis。关于redis连接池及Jedis封装API可以看这篇文章。redis连接池及常用API封装，如果你想下载安装redis可以看这篇文章，如何安装redis和简单使用. 那么这篇文章就会说一说Redis当中数据结构和常用的一些键命令。  Key(键)DEL 删除给定的一个或者多个key,不存在的key会被忽略。del key [key...]  时间复杂度：O(">
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T20:20:49+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-27T20:44:24+08:00">
                 2018-03-27
               </time>
             
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  561字
+                  826字
                 </span>
               
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  4分钟
                 </span>
               
             </div>
@@ -463,7 +463,13 @@
 <p>时间复杂度：O(N) N为被删除的key的数量。删除单个字符串类型的key时，时间复杂度为O(1)；删除单个列表、集合、有序集合或者哈希表类型的key时，时间复杂度为O(M)，M为上述数据结构中的元素数量。</p>
 <p>返回值： 被删除key的数量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"># set 一个值 key=name value=chencong</span><br><span class="line">127.0.0.1:6379&gt; set name chencong</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line"># 查看redis当中所有的key</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line"></span><br><span class="line"># get redis当中key=name 的value的值</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line">&quot;chencong&quot;</span><br><span class="line"></span><br><span class="line"># 删除redis当中 key = name 的值 ，返回删除成功的数量</span><br><span class="line">127.0.0.1:6379&gt; del name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; </span><br><span class="line"></span><br><span class="line"># redis 当中已经不存在key=name的值，删除一个不存在的key 返回0</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">(empty list or set)</span><br><span class="line">127.0.0.1:6379&gt; del name</span><br><span class="line">(integer) 0</span><br><span class="line">127.0.0.1:6379&gt; </span><br><span class="line"></span><br><span class="line"># 向redis当中存入多个&lt;K,V&gt; </span><br><span class="line">127.0.0.1:6379&gt; set name chencong</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set age 20</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; set phone 110</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line"># redis当中已存在的key</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;name&quot;</span><br><span class="line">3) &quot;phone&quot;</span><br><span class="line"></span><br><span class="line"># 同时删除多个key 返回删除成功的数量</span><br><span class="line">127.0.0.1:6379&gt; del name age phone</span><br><span class="line">(integer) 3</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="DUMP"><a href="#DUMP" class="headerlink" title="DUMP"></a>DUMP</h3><h3 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h3><h3 id="EXPIRE"><a href="#EXPIRE" class="headerlink" title="EXPIRE"></a>EXPIRE</h3><h3 id="EXPOREAT"><a href="#EXPOREAT" class="headerlink" title="EXPOREAT"></a>EXPOREAT</h3><h3 id="KEYS"><a href="#KEYS" class="headerlink" title="KEYS"></a>KEYS</h3><h3 id="MIGRATE"><a href="#MIGRATE" class="headerlink" title="MIGRATE"></a>MIGRATE</h3><h3 id="MOVE"><a href="#MOVE" class="headerlink" title="MOVE"></a>MOVE</h3><h3 id="OBJECT"><a href="#OBJECT" class="headerlink" title="OBJECT"></a>OBJECT</h3><h3 id="PERSIST"><a href="#PERSIST" class="headerlink" title="PERSIST"></a>PERSIST</h3><h3 id="PEXPIRE"><a href="#PEXPIRE" class="headerlink" title="PEXPIRE"></a>PEXPIRE</h3><h3 id="PEXPIREAT"><a href="#PEXPIREAT" class="headerlink" title="PEXPIREAT"></a>PEXPIREAT</h3><h3 id="PTTL"><a href="#PTTL" class="headerlink" title="PTTL"></a>PTTL</h3><h3 id="RANDOMKEY"><a href="#RANDOMKEY" class="headerlink" title="RANDOMKEY"></a>RANDOMKEY</h3><h3 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h3><h3 id="RENAMENX"><a href="#RENAMENX" class="headerlink" title="RENAMENX"></a>RENAMENX</h3><h3 id="RESTORE"><a href="#RESTORE" class="headerlink" title="RESTORE"></a>RESTORE</h3><h3 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h3><h3 id="TYPE"><a href="#TYPE" class="headerlink" title="TYPE"></a>TYPE</h3><h3 id="SCAN"><a href="#SCAN" class="headerlink" title="SCAN"></a>SCAN</h3><h2 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String(字符串)"></a>String(字符串)</h2><h2 id="Hash-哈希表"><a href="#Hash-哈希表" class="headerlink" title="Hash(哈希表)"></a>Hash(哈希表)</h2><h2 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h2><h2 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h2><h2 id="SortedSet-有序集合"><a href="#SortedSet-有序集合" class="headerlink" title="SortedSet(有序集合)"></a>SortedSet(有序集合)</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<h3 id="DUMP"><a href="#DUMP" class="headerlink" title="DUMP"></a>DUMP</h3><blockquote>
+<p>序列化给定的key，并且返回被序列化的值，使用<code>RESTORE</code>命令可以将这个值反序列化成redis的键。序列化的值不包括任何生产时间的信息。</p>
+</blockquote>
+<p>时间复杂度：查找给定key的时间复杂度为O(1)，对键key进行序列化的复杂度为O(N*M)，其中N是构成key的redis对象的数量，M则是这些对象的平均大小。如果序列化的对象为较小的字符串时，那么复杂度为O(1)</p>
+<p>返回值：如果key不存在则返回nil,否则返回序列化之后的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; set name chencong</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line"># 对key=name的键进行序列化</span><br><span class="line">127.0.0.1:6379&gt; dump name</span><br><span class="line">&quot;\x00\bchencong\b\x00\xaf\xb3.\xc0v\x8c_\a&quot;</span><br><span class="line">127.0.0.1:6379&gt; del name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; keys *</span><br><span class="line">(empty list or set)</span><br><span class="line"># 此时不存在key=name的键，对其进行序列化返回nil</span><br><span class="line">127.0.0.1:6379&gt; dump name</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h3><h3 id="EXPIRE"><a href="#EXPIRE" class="headerlink" title="EXPIRE"></a>EXPIRE</h3><h3 id="EXPOREAT"><a href="#EXPOREAT" class="headerlink" title="EXPOREAT"></a>EXPOREAT</h3><h3 id="KEYS"><a href="#KEYS" class="headerlink" title="KEYS"></a>KEYS</h3><h3 id="MIGRATE"><a href="#MIGRATE" class="headerlink" title="MIGRATE"></a>MIGRATE</h3><h3 id="MOVE"><a href="#MOVE" class="headerlink" title="MOVE"></a>MOVE</h3><h3 id="OBJECT"><a href="#OBJECT" class="headerlink" title="OBJECT"></a>OBJECT</h3><h3 id="PERSIST"><a href="#PERSIST" class="headerlink" title="PERSIST"></a>PERSIST</h3><h3 id="PEXPIRE"><a href="#PEXPIRE" class="headerlink" title="PEXPIRE"></a>PEXPIRE</h3><h3 id="PEXPIREAT"><a href="#PEXPIREAT" class="headerlink" title="PEXPIREAT"></a>PEXPIREAT</h3><h3 id="PTTL"><a href="#PTTL" class="headerlink" title="PTTL"></a>PTTL</h3><h3 id="RANDOMKEY"><a href="#RANDOMKEY" class="headerlink" title="RANDOMKEY"></a>RANDOMKEY</h3><h3 id="RENAME"><a href="#RENAME" class="headerlink" title="RENAME"></a>RENAME</h3><h3 id="RENAMENX"><a href="#RENAMENX" class="headerlink" title="RENAMENX"></a>RENAMENX</h3><h3 id="RESTORE"><a href="#RESTORE" class="headerlink" title="RESTORE"></a>RESTORE</h3><h3 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h3><h3 id="TYPE"><a href="#TYPE" class="headerlink" title="TYPE"></a>TYPE</h3><h3 id="SCAN"><a href="#SCAN" class="headerlink" title="SCAN"></a>SCAN</h3><h2 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String(字符串)"></a>String(字符串)</h2><h2 id="Hash-哈希表"><a href="#Hash-哈希表" class="headerlink" title="Hash(哈希表)"></a>Hash(哈希表)</h2><h2 id="List-列表"><a href="#List-列表" class="headerlink" title="List(列表)"></a>List(列表)</h2><h2 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set(集合)"></a>Set(集合)</h2><h2 id="SortedSet-有序集合"><a href="#SortedSet-有序集合" class="headerlink" title="SortedSet(有序集合)"></a>SortedSet(有序集合)</h2><h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
 <li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
@@ -534,9 +540,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
-          
             <a href="/tags/缓存/" rel="tag"><i class="fa fa-tag"></i> 缓存</a>
+          
+            <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
           
         </div>
       
@@ -790,7 +796,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.8k</span>
+    <span title="Site words total count">25.1k</span>
   
 </div>
 
