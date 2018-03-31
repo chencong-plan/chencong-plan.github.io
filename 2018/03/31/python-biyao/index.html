@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python,爬虫,beautifulSoup," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="hello，every body!~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://chencong-plan.github.io/tags/index.html">
+<meta name="description" content="前言 最近在做的毕设当中需要商品分类、商品的相信数据，包括图片、名称、价格、分类等详细信息。于是就想着试着用python爬去一下必要上面的商品数据。开始使用的是urllib配合正则表达式，然后看到了BeautifulSoup,官方中文文档也是非常详细的，然后就选择使用这两个工具来爬去一下商品数据。  联系聪聪的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。">
+<meta name="keywords" content="python,爬虫,beautifulSoup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3爬取【必要商城】的商品数据">
+<meta property="og:url" content="https://chencong-plan.github.io/2018/03/31/python-biyao/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
-<meta property="og:description" content="hello，every body!~">
+<meta property="og:description" content="前言 最近在做的毕设当中需要商品分类、商品的相信数据，包括图片、名称、价格、分类等详细信息。于是就想着试着用python爬去一下必要上面的商品数据。开始使用的是urllib配合正则表达式，然后看到了BeautifulSoup,官方中文文档也是非常详细的，然后就选择使用这两个工具来爬去一下商品数据。  联系聪聪的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-14T06:00:52.317Z">
+<meta property="og:updated_time" content="2018-03-31T06:55:39.198Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
-<meta name="twitter:description" content="hello，every body!~">
+<meta name="twitter:title" content="python3爬取【必要商城】的商品数据">
+<meta name="twitter:description" content="前言 最近在做的毕设当中需要商品分类、商品的相信数据，包括图片、名称、价格、分类等详细信息。于是就想着试着用python爬去一下必要上面的商品数据。开始使用的是urllib配合正则表达式，然后看到了BeautifulSoup,官方中文文档也是非常详细的，然后就选择使用这两个工具来爬去一下商品数据。  联系聪聪的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://chencong-plan.github.io/tags/"/>
+  <link rel="canonical" href="https://chencong-plan.github.io/2018/03/31/python-biyao/"/>
 
 
 
 
 
-  <title>tags | 聪聪的独立博客</title>
+  <title>python3爬取【必要商城】的商品数据 | 聪聪的独立博客</title>
   
 <style>
   .forkme{
@@ -287,40 +288,291 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/03/31/python-biyao/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="聪聪不匆匆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/author.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="聪聪的独立博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 21 个标签
+          <h1 class="post-title" itemprop="name headline">python3爬取【必要商城】的商品数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-31T14:43:53+08:00">
+                2018-03-31
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-03-31T14:55:39+08:00">
+                2018-03-31
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2018/03/31/python-biyao/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/31/python-biyao/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+             <span id="/2018/03/31/python-biyao/" class="leancloud_visitors" data-flag-title="python3爬取【必要商城】的商品数据">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  169字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1分钟
+                </span>
+              
             </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/InsertionSort/" style="font-size: 12px; color: #ccc">InsertionSort</a> <a href="/tags/Java封装/" style="font-size: 30px; color: #111">Java封装</a> <a href="/tags/SelectionSort/" style="font-size: 16.5px; color: #9d9d9d">SelectionSort</a> <a href="/tags/beautifulSoup/" style="font-size: 12px; color: #ccc">beautifulSoup</a> <a href="/tags/docker/" style="font-size: 12px; color: #ccc">docker</a> <a href="/tags/hibernate/" style="font-size: 12px; color: #ccc">hibernate</a> <a href="/tags/jackJson/" style="font-size: 12px; color: #ccc">jackJson</a> <a href="/tags/linux/" style="font-size: 16.5px; color: #9d9d9d">linux</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/redis/" style="font-size: 25.5px; color: #404040">redis</a> <a href="/tags/spring/" style="font-size: 16.5px; color: #9d9d9d">spring</a> <a href="/tags/关于我/" style="font-size: 16.5px; color: #9d9d9d">关于我</a> <a href="/tags/安静的角落/" style="font-size: 16.5px; color: #9d9d9d">安静的角落</a> <a href="/tags/技能/" style="font-size: 12px; color: #ccc">技能</a> <a href="/tags/插入排序/" style="font-size: 12px; color: #ccc">插入排序</a> <a href="/tags/框架/" style="font-size: 21px; color: #6f6f6f">框架</a> <a href="/tags/泛型/" style="font-size: 12px; color: #ccc">泛型</a> <a href="/tags/爬虫/" style="font-size: 12px; color: #ccc">爬虫</a> <a href="/tags/线性结构/" style="font-size: 21px; color: #6f6f6f">线性结构</a> <a href="/tags/缓存/" style="font-size: 21px; color: #6f6f6f">缓存</a> <a href="/tags/选择排序/" style="font-size: 16.5px; color: #9d9d9d">选择排序</a>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>最近在做的毕设当中需要商品分类、商品的相信数据，包括图片、名称、价格、分类等详细信息。于是就想着试着用python爬去一下<a href="http://www.biyao.com/home/index.html" target="_blank" rel="noopener">必要</a>上面的商品数据。开始使用的是<code>urllib</code>配合正则表达式，然后看到了<code>BeautifulSoup</code>,官方中文文档也是非常详细的，然后就选择使用这两个工具来爬去一下商品数据。</p>
+</blockquote>
+<h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
+<ul>
+<li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
+<li><a href="http://blog.csdn.net/chencong3139" target="_blank" rel="noopener">CSDN@ccoder</a></li>
+<li><a href="https://github.com/chencong-plan" target="_blank" rel="noopener">Github@ccoder</a></li>
+<li><a href="mailto:admin@ccoder.top" target="_blank" rel="noopener">Email@ccoder</a> <em>or</em> <a href="mailto:chencong3139@gmail.com" target="_blank" rel="noopener">Gmail@ccoder</a></li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechat_pay.png" alt="聪聪不匆匆 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/ali_pay.png" alt="聪聪不匆匆 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    聪聪不匆匆
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chencong-plan.github.io/2018/03/31/python-biyao/" title="python3爬取【必要商城】的商品数据">https://chencong-plan.github.io/2018/03/31/python-biyao/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          
+            <a href="/tags/beautifulSoup/" rel="tag"><i class="fa fa-tag"></i> beautifulSoup</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/15/redis-study/" rel="next" title="redis数据结构及键命令学习">
+                <i class="fa fa-chevron-left"></i> redis数据结构及键命令学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -329,6 +581,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -349,8 +610,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -459,6 +729,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
