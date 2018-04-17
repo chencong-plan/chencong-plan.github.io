@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="关于我,安静的角落," />
+  <meta name="keywords" content="Java,Java虚拟机,JVM," />
 
 
 
@@ -81,26 +81,22 @@
 
 
 
-<meta name="description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
-<meta name="keywords" content="关于我,安静的角落">
+<meta name="description" content="运行时数据区  程序计数器（线程私有）    当前线程所执行的字节码的行号指示器。   栈（线程私有）    每个方法执行时会创建一个栈帧用于存储局部变量等信息。   本地方法栈（类似栈）    为虚拟机使用到的Native方法服务   堆（线程共享）    存放对象实例，是垃圾收集器管理的主要区域   方法区（线程共享）    用于存储已经被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的">
+<meta name="keywords" content="Java,Java虚拟机,JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一个安静的小窝">
-<meta property="og:url" content="https://chencong-plan.github.io/2018/01/19/intership-diaries/index.html">
+<meta property="og:title" content="JVM垃圾收集和内存分配">
+<meta property="og:url" content="https://chencong-plan.github.io/2018/04/17/jvm-memory/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
-<meta property="og:description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
+<meta property="og:description" content="运行时数据区  程序计数器（线程私有）    当前线程所执行的字节码的行号指示器。   栈（线程私有）    每个方法执行时会创建一个栈帧用于存储局部变量等信息。   本地方法栈（类似栈）    为虚拟机使用到的Native方法服务   堆（线程共享）    存放对象实例，是垃圾收集器管理的主要区域   方法区（线程共享）    用于存储已经被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026288041.jpeg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026304624.jpeg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/1517026323192.jpeg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_111422.jpg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_121915.jpg">
-<meta property="og:image" content="http://osal57kgi.bkt.clouddn.com/20180127_111604.jpg">
-<meta property="og:updated_time" content="2018-01-30T06:58:50.126Z">
+<meta property="og:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/41376821593549120.jpg">
+<meta property="og:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/20130925212623125.jpg">
+<meta property="og:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/06524e23ef9136970be290e3732c0066_thumb.jpg">
+<meta property="og:updated_time" content="2018-04-17T10:39:40.742Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一个安静的小窝">
-<meta name="twitter:description" content="前言 2018年1月19日21:16:45  今天周五，回到学校。 想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。  滴滴答答 今天两个大男生和一帮小孩子在电影院看《公牛历险记》.  每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。 周末好好休息，电影也看了。明天加油(╹▽╹)  2018年">
-<meta name="twitter:image" content="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg">
+<meta name="twitter:title" content="JVM垃圾收集和内存分配">
+<meta name="twitter:description" content="运行时数据区  程序计数器（线程私有）    当前线程所执行的字节码的行号指示器。   栈（线程私有）    每个方法执行时会创建一个栈帧用于存储局部变量等信息。   本地方法栈（类似栈）    为虚拟机使用到的Native方法服务   堆（线程共享）    存放对象实例，是垃圾收集器管理的主要区域   方法区（线程共享）    用于存储已经被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的">
+<meta name="twitter:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/41376821593549120.jpg">
 
 
 
@@ -130,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://chencong-plan.github.io/2018/01/19/intership-diaries/"/>
+  <link rel="canonical" href="https://chencong-plan.github.io/2018/04/17/jvm-memory/"/>
 
 
 
 
 
-  <title>一个安静的小窝 | 聪聪的独立博客</title>
+  <title>JVM垃圾收集和内存分配 | 聪聪的独立博客</title>
   
 <style>
   .forkme{
@@ -308,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/01/19/intership-diaries/">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/04/17/jvm-memory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="聪聪不匆匆">
@@ -325,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一个安静的小窝</h1>
+          <h1 class="post-title" itemprop="name headline">JVM垃圾收集和内存分配</h1>
         
 
         <div class="post-meta">
@@ -337,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T21:14:35+08:00">
-                2018-01-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T18:35:54+08:00">
+                2018-04-17
               </time>
             
 
@@ -353,8 +349,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-30T14:58:50+08:00">
-                2018-01-30
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-17T18:39:40+08:00">
+                2018-04-17
               </time>
             
           </span>
@@ -372,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活中的点滴/" itemprop="url" rel="index">
-                    <span itemprop="name">生活中的点滴</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -391,8 +387,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/01/19/intership-diaries/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/01/19/intership-diaries/" itemprop="commentsCount"></span>
+                <a href="/2018/04/17/jvm-memory/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/04/17/jvm-memory/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -400,7 +396,7 @@
 
           
           
-             <span id="/2018/01/19/intership-diaries/" class="leancloud_visitors" data-flag-title="一个安静的小窝">
+             <span id="/2018/04/17/jvm-memory/" class="leancloud_visitors" data-flag-title="JVM垃圾收集和内存分配">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,7 +421,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  463字
+                  2,570字
                 </span>
               
 
@@ -441,7 +437,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  9分钟
                 </span>
               
             </div>
@@ -462,50 +458,172 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>2018年1月19日21:16:45  今天周五，回到学校。</p>
-<p>想将自己日常学习、思考、内心活动的点滴都记录下来，所以就有了这样一篇文章吧。</p>
-</blockquote>
-<h2 id="滴滴答答"><a href="#滴滴答答" class="headerlink" title="滴滴答答"></a>滴滴答答</h2><blockquote>
-<p><strong>今天两个大男生和一帮小孩子在电影院看《公牛历险记》.</strong></p>
-</blockquote>
-<p>每周回来都会去看电影，突然想起周一就要开始这个项目了；准备工作长达两三周了，队员都有些等不及了，虽然如此，我也要好好把控把控。</p>
-<p>周末好好休息，电影也看了。明天加油(<em>╹▽╹</em>)</p>
+        <h2 id="运行时数据区"><a href="#运行时数据区" class="headerlink" title="运行时数据区"></a>运行时数据区</h2><p><img src="http://7xjtfr.com1.z0.glb.clouddn.com/41376821593549120.jpg" alt="运行时数据区"></p>
+<ol>
+<li><p>程序计数器（线程私有）</p>
 <blockquote>
-<p><strong>2018年1月25日 项目进展第四天。</strong></p>
+<p>  当前线程所执行的字节码的行号指示器。</p>
 </blockquote>
-<p>组员之间能够顺利，友好的沟通项目当中出现的问题。每天我会检查大家提交的代码，看看都有哪些问题，不规范的地方。加油</p>
-<p>有几天没有更新自己的项目了，仓库当中提交数量又降下来了…</p>
-<p>听到这首歌了，梦想加油</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=519941070&auto=0&height=66"></iframe>
-
+</li>
+<li><p>栈（线程私有）</p>
 <blockquote>
-<p><strong>2018年1月26日 今天周五，雪还没融化</strong></p>
+<p>  每个方法执行时会创建一个栈帧用于存储局部变量等信息。</p>
 </blockquote>
-<p>昨晚武汉市区就开始下雪了，路上有车追尾。群里说：二环高架上有很多车打滑追尾，出门在外，祝大家平安到家！</p>
-<p>早晨起来地面融雪已结冰，行人小心翼翼的，却又匆忙赶路。</p>
+</li>
+<li><p>本地方法栈（类似栈）</p>
 <blockquote>
-<p><strong>看看这些雪吧</strong></p>
+<p>  为虚拟机使用到的<code>Native</code>方法服务</p>
 </blockquote>
-<p><img src="http://osal57kgi.bkt.clouddn.com/1517026279610.jpeg" alt=""></p>
+</li>
+<li><p>堆（线程共享）</p>
+<blockquote>
+<p>  存放对象实例，是垃圾收集器管理的主要区域</p>
+</blockquote>
+</li>
+<li><p>方法区（线程共享）</p>
+<blockquote>
+<p>  用于存储已经被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。（也被人称之为<code>永久代</code>），运行时常量池位于这个区域，用于存放编译期产生的各种字面量和符号引用。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="回收的对象"><a href="#回收的对象" class="headerlink" title="回收的对象"></a>回收的对象</h3><blockquote>
+<p>  堆中的对象</p>
+</blockquote>
+<h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><p>从<code>GC Roots</code>出发，没有跟<code>GC Roots</code>引用链相连的对象可回收。</p>
+<h4 id="GC-Roots选择"><a href="#GC-Roots选择" class="headerlink" title="GC Roots选择"></a>GC Roots选择</h4><ol>
+<li>栈中引用的对象。</li>
+<li>方法区（<code>永久代</code>）中引用的对象。</li>
+<li>本地方法栈中引用的对象。</li>
+</ol>
+<h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><ol>
+<li><strong>强引用</strong>：不会被回收</li>
+<li><strong>软引用</strong>：内存不足时才会被回收</li>
+<li><strong>弱引用</strong>：只能生存到下一次垃圾回收发生之前</li>
+<li><strong>虚引用</strong>：被回收时能够收到一个系统通知。</li>
+</ol>
+<h3 id="回收的方法"><a href="#回收的方法" class="headerlink" title="回收的方法"></a>回收的方法</h3><h4 id="标记清除算法"><a href="#标记清除算法" class="headerlink" title="标记清除算法"></a>标记清除算法</h4><p>标记需要回收的对象，标记完成之后清除被标记对象。</p>
+<p><strong>缺点 </strong>：效率低，空间碎片</p>
+<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>把内存空间分为两块，只是用其中的一块，满了之后把存活的对象复制到另一块，清除本块对象。</p>
+<p><strong>缺点</strong>：存活率大时，需要进行较多复制操作。</p>
+<h4 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h4><p>标记回收对象之后，把它们移动到一端，清除段边界的对象。</p>
+<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>将堆分为两块</p>
+<blockquote>
+<ol>
+<li><strong>新生代</strong>：使用复制算法，包括一个<code>Eden</code>空间和两个<code>Survivor</code>空间</li>
+<li><strong>老年代</strong>：使用标记清除或标记整理算法</li>
+</ol>
+</blockquote>
+<h3 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h3><p><img src="http://7xjtfr.com1.z0.glb.clouddn.com/20130925212623125.jpg" alt="垃圾收集器"></p>
+<ol>
+<li><p><code>Serial</code>：单线程收集器，工作时暂停其他工作线程。常用语<code>client</code>模式，在新生代采用复制算法，在老生代使用标记-整理算法。</p>
+</li>
+<li><p><code>ParNew:Serial</code>多线程版本，并行收集器，主要用于新生代收集。与CMS收集器配合成为现在最常用的server收集器。</p>
+</li>
+<li><p><code>Parallel Scavenge</code>并行收集器，吞吐量（用户代码运行时间/用户代码运行时间+垃圾收集时间）优先。</p>
+</li>
+<li><p><code>Serial Old:Serial</code>老年代版本，单线程，使用<code>标记-整理</code>算法。</p>
+</li>
+<li><p><code>Parllel Old:Parallel Scavenge</code>的老年代版本。</p>
+</li>
+<li><p><code>CMS</code>:并发收集，低停顿，基于<code>标记-清除</code>算法。</p>
+<blockquote>
+<ol>
+<li>初始标记：暂停工作线程，标记<code>GC Roots</code>能直接关联到对象。</li>
+<li>并发标记：与工作线程并发，进行<code>GC Roots Tracing</code></li>
+<li>重新标记：暂停工作进程，修正并发标记过程中发生变动的对象。</li>
+<li>并发清除</li>
+</ol>
+</blockquote>
+<p>缺点：</p>
+<blockquote>
+<ol>
+<li>对<code>CPU</code>资源非常敏感</li>
+<li>不能处理浮动垃圾（标记过程后出现的垃圾）</li>
+<li>产生空间碎片</li>
+</ol>
+</blockquote>
+</li>
+<li><p>G1 （Garbange First）</p>
+<blockquote>
+<ol>
+<li>并行与并发</li>
+<li>分代收集（概念上分代，实际的内存布局不再是新生代、老年代隔离）</li>
+<li>空间整合（基于<code>标记整理</code>算法）</li>
+<li>可预测的停顿</li>
+<li>分<code>Region</code>收集，根据允许收集的时间，有限回收代价大的<code>Region</code></li>
+</ol>
+</blockquote>
+<p>过程：</p>
+<blockquote>
+<ol>
+<li>初始标记</li>
+<li>并发标记</li>
+<li>最终标记：并行</li>
+<li>筛选标记：并行</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><ul>
+<li><p><strong>新生代GC</strong>：（Minor GC）发生在新生代的垃圾收集，速度较快。</p>
+</li>
+<li><p><strong>老年代</strong>：（Major GC/Full GC）发生在老年代的垃圾收集，速度比较慢。</p>
+</li>
+<li><p>首先向<code>eden</code>区申请分配空间，如果空间够，就直接进行分配，否则进行一次<code>minor GC</code></p>
+</li>
+<li><p><code>Minor GC</code>首先会对<code>Eden</code>区的对象进行标记，标记出来存活的的对象。然后把存活的对象copy到<code>From</code>空间。（标记-复制）</p>
+<blockquote>
 <ul>
-<li>山下的小路<br><img src="http://osal57kgi.bkt.clouddn.com/1517026288041.jpeg" alt=""></li>
+<li>如果<code>From</code>空间足够，则回收<code>eden</code>区可回收的对象。</li>
+<li>如果<code>From</code>内存空间不够，则把<code>From</code>空间存活的对象复制到<code>To</code>区。</li>
+<li>如果<code>To</code>区的内存空间也不够的话，则把<code>To</code>区存活的对象复制到老年代。</li>
 </ul>
-<p><img src="http://osal57kgi.bkt.clouddn.com/1517026304624.jpeg" alt=""></p>
-<ul>
-<li><p>湖畔小路<br><img src="http://osal57kgi.bkt.clouddn.com/1517026323192.jpeg" alt=""></p>
-</li>
-<li><p>楼下，小泰迪玩雪<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_111422.jpg" alt=""></p>
-</li>
-<li><p>看被堆的雪人<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_121915.jpg" alt=""></p>
-</li>
-<li><p>出行的公交<br><img src="http://osal57kgi.bkt.clouddn.com/20180127_111604.jpg" alt=""></p>
-</li>
-</ul>
-<blockquote>
-<p><strong>周二 进展</strong></p>
 </blockquote>
-<p>这个项目进展到一半，也是最重要的时候。优化细节，统筹个成员之间代码，把握各个模块之间的功能规范。</p>
+</li>
+<li><p>如果老年代空间也不够的话，或者达到触发老年代垃圾回收的条件话，就出发一次<code>Full GC</code>。</p>
+</li>
+</ul>
+<h3 id="Full-GC触发条件"><a href="#Full-GC触发条件" class="headerlink" title="Full GC触发条件"></a>Full GC触发条件</h3><ul>
+<li><p><strong>System.gc()方法调用</strong></p>
+<blockquote>
+<p>  此方法的调用时建议<code>JVM</code>进行<code>Full GC</code>，虽然只是建议而非一定，但是很多情况下它会触发<code>Full GC</code>,从而增加<code>Full GC</code>的频率，也增加了间歇性停顿的次数。建议在能不使用此方法时就不用。让虚拟机自己去管理内存，同时也可以通过<code>-XX:+ DisableExplicitGC来禁止RMI调用System.gc。</code></p>
+</blockquote>
+</li>
+<li><p><strong>老年代空间不足</strong></p>
+<blockquote>
+<p>  老年代空间只有在新生代对象转入及创建为大对象、大数组时才会出现不足的现象。当然，如果执行了<code>Full GC</code>操作之后仍然空间不足，则会抛出<code>java.lang.OutOfMemoryError: Java heap space</code>，为了避免以上两种情况引起的<code>Full GC</code>，调优时候尽量做到让对象在<code>Minor GC</code>阶段被回收，让对象在新生代多存货一段时间、不要创建过大的对象或数组。</p>
+</blockquote>
+</li>
+<li><p><strong>永生区空间不足</strong></p>
+<blockquote>
+<p>  <code>JVM</code>规范当中运行时数据区域中的方法区，在<code>HotSpot</code>虚拟机中又被习惯称为<code>永生代</code>或<code>永生区</code>，<code>Permanet Generation</code>中存放的是一些类的信息、常量、静态变量等数据；当系统中要加载的类、反射的类和调用的方法比较多，<code>Permantet Generation</code>可能被占座，在未配置为采用<code>CMS GC</code>的情况下还行<code>Full GC</code>。如果经过    <code>Full GC</code>仍然回收不了，那么<code>JVM</code>则会抛出如下异常：<code>java.lang.OutOfMemoryError: PermGen space</code>，为避免Perm Gen占满造成Full GC现象，可采用的方法为增大Perm Gen空间或转为使用CMS GC。</p>
+</blockquote>
+</li>
+<li><p><strong>CMS GC时出现promotion failed和concurrent mode failure</strong></p>
+<blockquote>
+<p>  对于采用CMS进行老年代GC的程序而言，尤其要注意GC日志中是否有promotion failed和concurrent mode failure两种状况，当这两种状况出现时可能 会触发Full GC。 promotion failed是在进行Minor GC时，survivor space放不下、对象只能放入老年代，而此时老年代也放不下造成的；concurrent mode failure是在 执行CMS GC的过程中同时有对象要放入老年代，而此时老年代空间不足造成的（有时候“空间不足”是CMS GC时当前的浮动垃圾过多导致暂时性的空间不足触发Full GC）。 对措施为：增大survivor space、老年代空间或调低触发并发GC的比率，但在JDK 5.0+、6.0+的版本中有可能会由于JDK的bug29导致CMS在remark完毕 后很久才触发sweeping动作。对于这种状况，可通过设置<code>-XX: CMSMaxAbortablePrecleanTime=5</code>（单位为ms）来避免。</p>
+</blockquote>
+</li>
+<li><p><strong>统计得到的<code>Minor GC</code>晋升到旧生代的平均大小大于老年代的剩余时间</strong></p>
+<blockquote>
+<p>  这是一个较为复杂的触发情况，Hotspot为了避免由于新生代对象晋升到旧生代导致旧生代空间不足的现象，在进行Minor GC时，做了一个判断，如果之 前统计所得到的Minor GC晋升到旧生代的平均大小大于旧生代的剩余空间，那么就直接触发Full GC。 例如程序第一次触发Minor GC后，有6MB的对象晋升到旧生代，那么当下一次Minor GC发生时，首先检查旧生代的剩余空间是否大于6MB，如果小于6MB， 则执行Full GC。 当新生代采用PS GC时，方式稍有不同，PS GC是在Minor GC后也会检查，例如上面的例子中第一次Minor GC后，PS GC会检查此时旧生代的剩余空间是否 大于6MB，如小于，则触发对旧生代的回收。 除了以上4种状况外，对于使用RMI来进行RPC或管理的Sun JDK应用而言，默认情况下会一小时执行一次Full GC。可通过在启动时通过<code>- java - Dsun.rmi.dgc.client.gcInterval=3600000</code>来设置Full GC执行的间隔时间或通过-XX:+ DisableExplicitGC来禁止RMI调用System.gc。</p>
+</blockquote>
+</li>
+<li><p><strong>堆中分配很大对象</strong></p>
+<blockquote>
+<p>  所谓大对象，是指需要大量连续内存空间的java对象，例如很长的数组，此种对象会直接进入老年代，而老年代虽然有很大的剩余空间，但是无法找到足够大的连续空间来分配给当前对象，此种情况就会触发JVM进行Full GC。 为了解决这个问题，CMS垃圾收集器提供了一个可配置的参数，即-XX:+UseCMSCompactAtFullCollection开关参数，用于在“享受”完Full GC服务之后额外免费赠送一个碎片整理的过程，内存整理的过程无法并发的，空间碎片问题没有了，但提顿时间不得不变长了，JVM设计者们还提供了另外一个参数 <code>-XX:CMSFullGCsBeforeCompaction</code>,这个参数用于设置在执行多少次不压缩的Full GC后,跟着来一次带压缩的。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="内存分配策略"><a href="#内存分配策略" class="headerlink" title="内存分配策略"></a>内存分配策略</h2><ol>
+<li>对象有限的<code>Eden</code>分配</li>
+<li>大对象直接进入老年代。</li>
+<li>长期存活的对象将进入老年代：对象年龄达到设置值。</li>
+<li>动态对象的年龄判断：如果<code>Surivivor</code>空间中相同年龄的所有对象的大小和大于<code>Surivivor</code>空间一半，大于登录该年龄的对象进入老年代。</li>
+<li>空间分配担保：发生<code>Minor GC</code>之前，虚拟机会检查老年代的可用空间是否大于新生代所有对象的空间，条件成立则<code>Minor GC</code>是是安全的。</li>
+</ol>
+<h2 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h2><p><img src="http://7xjtfr.com1.z0.glb.clouddn.com/06524e23ef9136970be290e3732c0066_thumb.jpg" alt="内存布局"></p>
 <h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
@@ -562,7 +680,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://chencong-plan.github.io/2018/01/19/intership-diaries/" title="一个安静的小窝">https://chencong-plan.github.io/2018/01/19/intership-diaries/</a>
+    <a href="https://chencong-plan.github.io/2018/04/17/jvm-memory/" title="JVM垃圾收集和内存分配">https://chencong-plan.github.io/2018/04/17/jvm-memory/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -577,9 +695,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/关于我/" rel="tag"><i class="fa fa-tag"></i> 关于我</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
-            <a href="/tags/安静的角落/" rel="tag"><i class="fa fa-tag"></i> 安静的角落</a>
+            <a href="/tags/Java虚拟机/" rel="tag"><i class="fa fa-tag"></i> Java虚拟机</a>
+          
+            <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
           
         </div>
       
@@ -592,8 +712,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/18/first-redis/" rel="next" title="如何安装redis和简单使用">
-                <i class="fa fa-chevron-left"></i> 如何安装redis和简单使用
+              <a href="/2018/04/17/class-life/" rel="next" title="类的生命周期">
+                <i class="fa fa-chevron-left"></i> 类的生命周期
               </a>
             
           </div>
@@ -601,10 +721,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/13/cache-java/" rel="prev" title="Map下的精简Java缓存类设计">
-                Map下的精简Java缓存类设计 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -790,7 +906,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#滴滴答答"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;" class="headerlink" title="&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;"></a>&#x6EF4;&#x6EF4;&#x7B54;&#x7B54;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x8FD0;&#x884C;&#x65F6;&#x6570;&#x636E;&#x533A;" class="headerlink" title="&#x8FD0;&#x884C;&#x65F6;&#x6570;&#x636E;&#x533A;"></a>&#x8FD0;&#x884C;&#x65F6;&#x6570;&#x636E;&#x533A;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5783;&#x573E;&#x56DE;&#x6536;" class="headerlink" title="&#x5783;&#x573E;&#x56DE;&#x6536;"></a>&#x5783;&#x573E;&#x56DE;&#x6536;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回收的对象"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#&#x56DE;&#x6536;&#x7684;&#x5BF9;&#x8C61;" class="headerlink" title="&#x56DE;&#x6536;&#x7684;&#x5BF9;&#x8C61;"></a>&#x56DE;&#x6536;&#x7684;&#x5BF9;&#x8C61;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可达性分析算法"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x7B97;&#x6CD5;" class="headerlink" title="&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x7B97;&#x6CD5;"></a>&#x53EF;&#x8FBE;&#x6027;&#x5206;&#x6790;&#x7B97;&#x6CD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GC-Roots选择"><span class="nav-number">2.2.1.</span> <span class="nav-text"><a href="#GC-Roots&#x9009;&#x62E9;" class="headerlink" title="GC Roots&#x9009;&#x62E9;"></a>GC Roots&#x9009;&#x62E9;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用"><span class="nav-number">2.2.2.</span> <span class="nav-text"><a href="#&#x5F15;&#x7528;" class="headerlink" title="&#x5F15;&#x7528;"></a>&#x5F15;&#x7528;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回收的方法"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x56DE;&#x6536;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="&#x56DE;&#x6536;&#x7684;&#x65B9;&#x6CD5;"></a>&#x56DE;&#x6536;&#x7684;&#x65B9;&#x6CD5;</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记清除算法"><span class="nav-number">2.3.1.</span> <span class="nav-text"><a href="#&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7B97;&#x6CD5;" class="headerlink" title="&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7B97;&#x6CD5;"></a>&#x6807;&#x8BB0;&#x6E05;&#x9664;&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制算法"><span class="nav-number">2.3.2.</span> <span class="nav-text"><a href="#&#x590D;&#x5236;&#x7B97;&#x6CD5;" class="headerlink" title="&#x590D;&#x5236;&#x7B97;&#x6CD5;"></a>&#x590D;&#x5236;&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记整理算法"><span class="nav-number">2.3.3.</span> <span class="nav-text"><a href="#&#x6807;&#x8BB0;&#x6574;&#x7406;&#x7B97;&#x6CD5;" class="headerlink" title="&#x6807;&#x8BB0;&#x6574;&#x7406;&#x7B97;&#x6CD5;"></a>&#x6807;&#x8BB0;&#x6574;&#x7406;&#x7B97;&#x6CD5;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分代收集算法"><span class="nav-number">2.3.4.</span> <span class="nav-text"><a href="#&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;"></a>&#x5206;&#x4EE3;&#x6536;&#x96C6;&#x7B97;&#x6CD5;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾回收器"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;" class="headerlink" title="&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;"></a>&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x5185;&#x5B58;&#x5206;&#x914D;" class="headerlink" title="&#x5185;&#x5B58;&#x5206;&#x914D;"></a>&#x5185;&#x5B58;&#x5206;&#x914D;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-GC触发条件"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#Full-GC&#x89E6;&#x53D1;&#x6761;&#x4EF6;" class="headerlink" title="Full GC&#x89E6;&#x53D1;&#x6761;&#x4EF6;"></a>Full GC&#x89E6;&#x53D1;&#x6761;&#x4EF6;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存分配策略"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x5185;&#x5B58;&#x5206;&#x914D;&#x7B56;&#x7565;" class="headerlink" title="&#x5185;&#x5B58;&#x5206;&#x914D;&#x7B56;&#x7565;"></a>&#x5185;&#x5B58;&#x5206;&#x914D;&#x7B56;&#x7565;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存布局"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x5185;&#x5B58;&#x5E03;&#x5C40;" class="headerlink" title="&#x5185;&#x5B58;&#x5E03;&#x5C40;"></a>&#x5185;&#x5B58;&#x5E03;&#x5C40;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
             
 
           </div>
