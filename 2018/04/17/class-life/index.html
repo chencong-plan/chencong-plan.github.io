@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="技能," />
+  <meta name="keywords" content="Java,类加载器," />
 
 
 
@@ -81,18 +81,21 @@
 
 
 
-<meta name="description" content="前言 个人用来记录自己日常学习，浏览过，收藏过的一些网站，文章。同时也会记录自己一些关于这些收藏文章的看法，补充。 大多数情况下学习的文章、查找问题的帖子使用过之后都会忘记了，在这里将这些好的文章都保存下来。希望能够对自己、对大家有帮助。  文章类RESTful架构 系列收藏 前后端分类，使用REST服务，前后台分别部署在不同的服务器上。  REST风格框架实战：从MVC到前后端分离(附完整Dem">
-<meta name="keywords" content="技能">
+<meta name="description" content="类的生命周期  加载类加载指的是类的生命周期当中加载    连接 初始化三个阶段。在加载阶段，虚拟机要完成以下三件事情：  通过一个类的全限定名来获取定义此类的二进制字节流 将这个字节流代表的静态存储结构转化为方法区的运行时数据结构 在内存当中生成一个代表这个类的java.lang.Class对象，作为方法区这个类各种数据的访问 入口。   连接连接阶段比较复杂，一般会跟加载阶段和初始化阶段交叉进">
+<meta name="keywords" content="Java,类加载器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="browser-note 收藏文章">
-<meta property="og:url" content="https://chencong-plan.github.io/2018/03/14/browser-note/index.html">
+<meta property="og:title" content="类的生命周期">
+<meta property="og:url" content="https://chencong-plan.github.io/2018/04/17/class-life/index.html">
 <meta property="og:site_name" content="聪聪的独立博客">
-<meta property="og:description" content="前言 个人用来记录自己日常学习，浏览过，收藏过的一些网站，文章。同时也会记录自己一些关于这些收藏文章的看法，补充。 大多数情况下学习的文章、查找问题的帖子使用过之后都会忘记了，在这里将这些好的文章都保存下来。希望能够对自己、对大家有帮助。  文章类RESTful架构 系列收藏 前后端分类，使用REST服务，前后台分别部署在不同的服务器上。  REST风格框架实战：从MVC到前后端分离(附完整Dem">
+<meta property="og:description" content="类的生命周期  加载类加载指的是类的生命周期当中加载    连接 初始化三个阶段。在加载阶段，虚拟机要完成以下三件事情：  通过一个类的全限定名来获取定义此类的二进制字节流 将这个字节流代表的静态存储结构转化为方法区的运行时数据结构 在内存当中生成一个代表这个类的java.lang.Class对象，作为方法区这个类各种数据的访问 入口。   连接连接阶段比较复杂，一般会跟加载阶段和初始化阶段交叉进">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-14T13:52:20.588Z">
+<meta property="og:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/1335504117_6784.jpg">
+<meta property="og:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/111825528931093.png">
+<meta property="og:updated_time" content="2018-04-17T10:32:28.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="browser-note 收藏文章">
-<meta name="twitter:description" content="前言 个人用来记录自己日常学习，浏览过，收藏过的一些网站，文章。同时也会记录自己一些关于这些收藏文章的看法，补充。 大多数情况下学习的文章、查找问题的帖子使用过之后都会忘记了，在这里将这些好的文章都保存下来。希望能够对自己、对大家有帮助。  文章类RESTful架构 系列收藏 前后端分类，使用REST服务，前后台分别部署在不同的服务器上。  REST风格框架实战：从MVC到前后端分离(附完整Dem">
+<meta name="twitter:title" content="类的生命周期">
+<meta name="twitter:description" content="类的生命周期  加载类加载指的是类的生命周期当中加载    连接 初始化三个阶段。在加载阶段，虚拟机要完成以下三件事情：  通过一个类的全限定名来获取定义此类的二进制字节流 将这个字节流代表的静态存储结构转化为方法区的运行时数据结构 在内存当中生成一个代表这个类的java.lang.Class对象，作为方法区这个类各种数据的访问 入口。   连接连接阶段比较复杂，一般会跟加载阶段和初始化阶段交叉进">
+<meta name="twitter:image" content="http://7xjtfr.com1.z0.glb.clouddn.com/1335504117_6784.jpg">
 
 
 
@@ -122,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://chencong-plan.github.io/2018/03/14/browser-note/"/>
+  <link rel="canonical" href="https://chencong-plan.github.io/2018/04/17/class-life/"/>
 
 
 
 
 
-  <title>browser-note 收藏文章 | 聪聪的独立博客</title>
+  <title>类的生命周期 | 聪聪的独立博客</title>
   
 <style>
   .forkme{
@@ -300,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/03/14/browser-note/">
+    <link itemprop="mainEntityOfPage" href="https://chencong-plan.github.io/2018/04/17/class-life/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="聪聪不匆匆">
@@ -317,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">browser-note 收藏文章</h1>
+          <h1 class="post-title" itemprop="name headline">类的生命周期</h1>
         
 
         <div class="post-meta">
@@ -329,8 +332,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-14T21:44:07+08:00">
-                2018-03-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-17T18:25:07+08:00">
+                2018-04-17
               </time>
             
 
@@ -345,8 +348,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-03-14T21:52:20+08:00">
-                2018-03-14
+              <time title="更新于" itemprop="dateModified" datetime="2018-04-17T18:32:28+08:00">
+                2018-04-17
               </time>
             
           </span>
@@ -364,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/browser-note/" itemprop="url" rel="index">
-                    <span itemprop="name">browser-note</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -383,8 +386,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2018/03/14/browser-note/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/14/browser-note/" itemprop="commentsCount"></span>
+                <a href="/2018/04/17/class-life/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/04/17/class-life/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -392,7 +395,7 @@
 
           
           
-             <span id="/2018/03/14/browser-note/" class="leancloud_visitors" data-flag-title="browser-note 收藏文章">
+             <span id="/2018/04/17/class-life/" class="leancloud_visitors" data-flag-title="类的生命周期">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,7 +420,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  503字
+                  1,752字
                 </span>
               
 
@@ -433,7 +436,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  6分钟
                 </span>
               
             </div>
@@ -454,61 +457,82 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>个人用来记录自己日常学习，浏览过，收藏过的一些网站，文章。同时也会记录自己一些关于这些收藏文章的看法，补充。</p>
-<p>大多数情况下学习的文章、查找问题的帖子使用过之后都会忘记了，在这里将这些好的文章都保存下来。希望能够对自己、对大家有帮助。</p>
+        <h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p><img src="http://7xjtfr.com1.z0.glb.clouddn.com/1335504117_6784.jpg" alt="类的生命周期"></p>
+<hr>
+<h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>类加载指的是类的生命周期当中<code>加载</code>    <code>连接</code> <code>初始化</code>三个阶段。在加载阶段，虚拟机要完成以下三件事情：</p>
+<ol>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
+<li>将这个字节流代表的静态存储结构转化为方法区的运行时数据结构</li>
+<li>在内存当中生成一个代表这个类的<code>java.lang.Class</code>对象，作为方法区这个类各种数据的访问 入口。</li>
+</ol>
+<hr>
+<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>连接阶段比较复杂，一般会跟加载阶段和初始化阶段交叉进行，这个阶段的主要任务就是做一些加载后的验证工作以及一些初始化前的准备工作，同时可以细分为三个步骤：<code>验证</code> <code>准备</code> <code>解析</code></p>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><p>当一个类被加载之后，必须要验证一下这个类是否合法；比如这个类是不是符合字节码的格式、变量与方法是否存在重复、数据类型是否有效、继承与实现是否符合标准等等。总而言之，这个阶段就是保证加载的类能够被JVM所运行，并且不会危害到虚拟机自身的安全。<code>eg：数组越界访问等</code></p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备阶段的工作就是为类的静态变量分配内存并且设置为JVM默认的初始值；对于非静态 变量，则不会为其分配内存，这些变量使用的内存都存在于方法区中分配。此时需要注意的是：静态变量的初始值为JVM默认的初始值，而不是我们在程序当中设定的初值。JVM默认的初值见一下内容：</p>
+<blockquote>
+<ol>
+<li>基本类型（int ,long short char byte boolean float double）的默认值为0</li>
+<li>引用类型默认值为<code>null</code></li>
+<li>常量的默认值为我们程序当中设定的值，比如我们定义<code>final static int A = 100</code>，则在准备阶段中<code>A</code>的值为100</li>
+</ol>
 </blockquote>
-<h2 id="文章类"><a href="#文章类" class="headerlink" title="文章类"></a>文章类</h2><h3 id="RESTful架构-系列收藏"><a href="#RESTful架构-系列收藏" class="headerlink" title="RESTful架构 系列收藏"></a>RESTful架构 系列收藏</h3><blockquote>
-<p>前后端分类，使用REST服务，前后台分别部署在不同的服务器上。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>这一阶段的任务就是：把成常量池当中的符号引用转化成直接引用。</p>
 <ul>
-<li><a href="http://blog.csdn.net/justloveyou_/article/details/74379479" target="_blank" rel="noopener">REST风格框架实战：从MVC到前后端分离(附完整Demo)</a></li>
-<li><a href="http://blog.csdn.net/shaobingj126/article/details/49420145" target="_blank" rel="noopener">从MVC到前后端分离（REST-个人也认为是目前比较流行和比较好的方式）</a></li>
+<li><strong>符号引用</strong>：符号引用以一组符号来描述所引用的目标，符号引用可以是任何形式的字面量，只要使用时能无歧义的定位到目标即可。此目标不一定存在于内存当当中。</li>
+<li><strong>直接引用</strong>：直接引用可以是直接指向目标的指针，相对偏移量或者是一个能够间接定位到目标的句柄。此时目标已经存在于内存当中。</li>
 </ul>
-<p>理解RESTful架构</p>
-<ul>
-<li><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">理解RESTful架构</a></li>
-</ul>
+<p>连接阶段完成之后，会根据使用情况(<code>主动引用</code>还是<code>被动引用</code>)来选择是否对类进行初始化。</p>
+<hr>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>类初始阶段是类加载过程的最后一步，前面的类加载过程中，除了加载阶段用户应用程序可以通过自定义的类加载器参与之外，其余动作由虚拟机主导和控制。到本阶段，才时真正开始执行类中定义的代码。</p>
+<p>初始化过程是执行类构造器<code>&lt;clinit&gt;()</code>方法的过程，<code>&lt;clinit&gt;()</code>方法是由编译器自动收集类中所有类变量赋值操作和静态语句块中的语句合并产生的，编译器收集的顺序是由语句在源文件出现的顺序决定的。</p>
+<p>静态语句块中只能够访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块可以赋值，但是不能够访问。</p>
+<blockquote>
+<ol>
+<li>虚拟机保证父类的 <code>&lt;clinit&gt;()</code>方法在子类的<code>&lt;clinit&gt;()</code>之前被执行</li>
+<li>虚拟机保证<code>&lt;clinit&gt;()</code>在多线程环境中被正确地加锁，同步，同一个类加载器下，一个类<code>&lt;clinit&gt;()</code>只被执行一遍。</li>
+</ol>
 </blockquote>
-<h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><blockquote>
-<p>Maven学习总结，系列文章总结</p>
-<ul>
-<li><a href="http://www.cnblogs.com/xdp-gacl/tag/Maven%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" target="_blank" rel="noopener">孤傲苍狼的Maven学习总结</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/3498271.html" target="_blank" rel="noopener">Maven学习总结(一)——Maven入门</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4051690.html" target="_blank" rel="noopener">Maven学习总结(二)——Maven项目构建过程练习</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4240930.html" target="_blank" rel="noopener">Maven学习总结(三)——使用Maven构建项目</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4051819.html" target="_blank" rel="noopener">Maven学习总结(四)——Maven核心概念</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4058008.html" target="_blank" rel="noopener">Maven学习总结(五)——聚合与继承</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4052025.html" target="_blank" rel="noopener">Maven学习总结(六)——Maven与Eclipse整合</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4054814.html" target="_blank" rel="noopener">Maven学习总结(七)——eclipse中使用Maven创建Web项目</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4242221.html" target="_blank" rel="noopener">Maven学习总结(八)——使用Maven构建多模块项目</a></li>
-<li><a href="http://www.cnblogs.com/xdp-gacl/p/4068967.html" target="_blank" rel="noopener">Maven学习总结(九)——使用Nexus搭建Maven私服</a></li>
-</ul>
+<hr>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="主动引用"><a href="#主动引用" class="headerlink" title="主动引用"></a>主动引用</h3><p>如果一个类被主动引用，就会触发类的初始化。在<code>Java</code>当中，主动引用的情况有：</p>
+<blockquote>
+<ol>
+<li>通过<code>new</code>关键字实例化类对象、读取或者设置类的静态变量、调用类的静态方法。</li>
+<li>通过反射方式来执行以上三种行为。</li>
+<li>初始化子类的时候，会触发父类的初始化。</li>
+<li>作为程序入口直接运行时（也就是直接调用<code>main()</code>方法）。</li>
+</ol>
 </blockquote>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><blockquote>
-<p>Mock.js 生成随机数据，拦截 Ajax 请求</p>
-<ul>
-<li><a href="http://mockjs.com/" target="_blank" rel="noopener">Mock.js</a></li>
-</ul>
-<p>前后端分类</p>
-<ul>
-<li><a href="https://segmentfault.com/a/1190000009329474" target="_blank" rel="noopener">前后端分离实践（一）</a></li>
-<li><a href="http://blog.jobbole.com/111624/" target="_blank" rel="noopener">实现前后端分离的心得</a></li>
-</ul>
+<h3 id="被动引用"><a href="#被动引用" class="headerlink" title="被动引用"></a>被动引用</h3><blockquote>
+<ol>
+<li>引用父类的静态字段，只会引起父类的初始化，而不会引起子类的初始化。</li>
+<li>定义类数组，不会引起类的初始化。</li>
+<li>引用类的常量，不会引起类的初始化。</li>
+</ol>
 </blockquote>
-<h3 id="MongoDB-Spring文件上传下载"><a href="#MongoDB-Spring文件上传下载" class="headerlink" title="MongoDB Spring文件上传下载"></a>MongoDB Spring文件上传下载</h3><ul>
-<li><p><a href="http://blog.csdn.net/wangjia55/article/details/51740437" target="_blank" rel="noopener">Springmvc与Mongo GridFs 实现文件的上传和获取</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/antao592/article/details/52778567" target="_blank" rel="noopener">spring封装mongodb的代码实现</a></p>
-</li>
-</ul>
-<h2 id="技能类"><a href="#技能类" class="headerlink" title="技能类"></a>技能类</h2><h3 id="linux下安装软件"><a href="#linux下安装软件" class="headerlink" title="linux下安装软件"></a>linux下安装软件</h3><ul>
-<li><p><a href="http://blog.csdn.net/tjcyjd/article/details/52189182" target="_blank" rel="noopener">Linux下干净卸载mysql详解</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/xyang81/article/details/51759200" target="_blank" rel="noopener">MySQL5.7安装与配置（YUM）</a></p>
-</li>
-<li><p><a href="http://blog.csdn.net/fcb_campnou/article/details/44851691" target="_blank" rel="noopener">vim : 依赖: vim-common (= 2:7.3.429-2ubuntu2) 但是 2:7.3.429-2ubuntu2.1 正要被安装</a></p>
-</li>
-</ul>
+<p><code>使用</code>阶段完成之后，<code>Java</code>就进入类<code>卸载</code>阶段。</p>
+<hr>
+<h2 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h2><p>在类使用完之后，如果满足下列情况，类就会被卸载：</p>
+<blockquote>
+<ol>
+<li>该类所有的实例都已经被回收，也就是<code>Java</code>堆当中不存在该类的任何实例。</li>
+<li>加载该类的<code>ClassLoader</code>已经被回收。</li>
+<li>该类对应的<code>java.lang.Class</code>对象没有任何地方被引用，没有在任何地方通过反射访问该类。</li>
+</ol>
+</blockquote>
+<p>如果以上三个条件都满足，<code>JVM</code>就会在方法区垃圾回收的时候对类进行卸载，类的卸载过程其实就是在方法区当中清空类信息，<code>Java</code>类的整个生命周期就结束了。</p>
+<p>由<code>Java</code>虚拟机自带的类加载器所加载的类，在虚拟机的声明周期当中，始终不会被卸载。Java虚拟机自带的类加载器包括<code>根类加载器</code> <code>扩展类加载器</code> <code>系统类加载器</code> 。<code>Java</code>虚拟机本身会始终引用这些类加载器，而这些类加载器则会始终引用它们所加载的类的Class对象。因此这些Class对象始终是可触及的，也就是其始终不会被卸载的原因。</p>
+<p>由用户自定义的类加载器加载的类是可以被卸载的。</p>
+<p><img src="http://7xjtfr.com1.z0.glb.clouddn.com/111825528931093.png" alt="img"></p>
+<hr>
+<h2 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h2><blockquote>
+<ol>
+<li>启动类加载器<code>Bootstrap ClassLoader</code>：加载<code>lib/</code>中的类，不可直接使用。</li>
+<li>扩展类加载器<code>Extension ClassLoder</code>：加载<code>lib/ext</code>中的类，可直接使用。</li>
+<li>应用程序类加载器<code>Application ClassLoader</code>：负责加载用户类路径上所指定的类，可以直接使用。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h2><p>如果一个类加载器收到了类加载的请求，它不会自己去尝试加载这个类，而是把请求为派给父类加载器去完成。只有父类加载器反馈自己无法完成加载请求时，子加载器才会尝试自己去加载。</p>
 <h2 id="联系"><a href="#联系" class="headerlink" title="联系"></a>联系</h2><p><a href="https://ccoder.cc/" target="_blank" rel="noopener">聪聪</a>的独立博客 ，一个喜欢技术，喜欢钻研的95后。如果你看到这篇文章，千里之外，我在等你联系。</p>
 <ul>
 <li><a href="https://ccoder.cc/" target="_blank" rel="noopener">Blog@ccoder’s blog</a></li>
@@ -565,7 +589,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://chencong-plan.github.io/2018/03/14/browser-note/" title="browser-note 收藏文章">https://chencong-plan.github.io/2018/03/14/browser-note/</a>
+    <a href="https://chencong-plan.github.io/2018/04/17/class-life/" title="类的生命周期">https://chencong-plan.github.io/2018/04/17/class-life/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -580,7 +604,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/技能/" rel="tag"><i class="fa fa-tag"></i> 技能</a>
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+            <a href="/tags/类加载器/" rel="tag"><i class="fa fa-tag"></i> 类加载器</a>
           
         </div>
       
@@ -593,8 +619,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/14/mmall-beta/" rel="next" title="记毕业设计学习之路">
-                <i class="fa fa-chevron-left"></i> 记毕业设计学习之路
+              <a href="/2018/03/15/redis-study/" rel="next" title="redis数据结构及键命令学习">
+                <i class="fa fa-chevron-left"></i> redis数据结构及键命令学习
               </a>
             
           </div>
@@ -602,10 +628,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/15/package-jsonUtil/" rel="prev" title="高可用JsonUtil封装">
-                高可用JsonUtil封装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -791,7 +813,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章类"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x6587;&#x7AE0;&#x7C7B;" class="headerlink" title="&#x6587;&#x7AE0;&#x7C7B;"></a>&#x6587;&#x7AE0;&#x7C7B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RESTful架构-系列收藏"><span class="nav-number">2.1.</span> <span class="nav-text"><a href="#RESTful&#x67B6;&#x6784;-&#x7CFB;&#x5217;&#x6536;&#x85CF;" class="headerlink" title="RESTful&#x67B6;&#x6784; &#x7CFB;&#x5217;&#x6536;&#x85CF;"></a>RESTful&#x67B6;&#x6784; &#x7CFB;&#x5217;&#x6536;&#x85CF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven"><span class="nav-number">2.2.</span> <span class="nav-text"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">2.3.</span> <span class="nav-text"><a href="#&#x524D;&#x7AEF;" class="headerlink" title="&#x524D;&#x7AEF;"></a>&#x524D;&#x7AEF;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB-Spring文件上传下载"><span class="nav-number">2.4.</span> <span class="nav-text"><a href="#MongoDB-Spring&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;" class="headerlink" title="MongoDB Spring&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;"></a>MongoDB Spring&#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x4E0B;&#x8F7D;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技能类"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x6280;&#x80FD;&#x7C7B;" class="headerlink" title="&#x6280;&#x80FD;&#x7C7B;"></a>&#x6280;&#x80FD;&#x7C7B;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux下安装软件"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#linux&#x4E0B;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;" class="headerlink" title="linux&#x4E0B;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;"></a>linux&#x4E0B;&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类的生命周期"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x7C7B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;" class="headerlink" title="&#x7C7B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>&#x7C7B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x52A0;&#x8F7D;" class="headerlink" title="&#x52A0;&#x8F7D;"></a>&#x52A0;&#x8F7D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x8FDE;&#x63A5;" class="headerlink" title="&#x8FDE;&#x63A5;"></a>&#x8FDE;&#x63A5;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">3.1.</span> <span class="nav-text"><a href="#&#x9A8C;&#x8BC1;" class="headerlink" title="&#x9A8C;&#x8BC1;"></a>&#x9A8C;&#x8BC1;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备"><span class="nav-number">3.2.</span> <span class="nav-text"><a href="#&#x51C6;&#x5907;" class="headerlink" title="&#x51C6;&#x5907;"></a>&#x51C6;&#x5907;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解析"><span class="nav-number">3.3.</span> <span class="nav-text"><a href="#&#x89E3;&#x6790;" class="headerlink" title="&#x89E3;&#x6790;"></a>&#x89E3;&#x6790;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x521D;&#x59CB;&#x5316;" class="headerlink" title="&#x521D;&#x59CB;&#x5316;"></a>&#x521D;&#x59CB;&#x5316;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主动引用"><span class="nav-number">5.1.</span> <span class="nav-text"><a href="#&#x4E3B;&#x52A8;&#x5F15;&#x7528;" class="headerlink" title="&#x4E3B;&#x52A8;&#x5F15;&#x7528;"></a>&#x4E3B;&#x52A8;&#x5F15;&#x7528;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被动引用"><span class="nav-number">5.2.</span> <span class="nav-text"><a href="#&#x88AB;&#x52A8;&#x5F15;&#x7528;" class="headerlink" title="&#x88AB;&#x52A8;&#x5F15;&#x7528;"></a>&#x88AB;&#x52A8;&#x5F15;&#x7528;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#卸载"><span class="nav-number">6.</span> <span class="nav-text"><a href="#&#x5378;&#x8F7D;" class="headerlink" title="&#x5378;&#x8F7D;"></a>&#x5378;&#x8F7D;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类加载器"><span class="nav-number">7.</span> <span class="nav-text"><a href="#&#x7C7B;&#x52A0;&#x8F7D;&#x5668;" class="headerlink" title="&#x7C7B;&#x52A0;&#x8F7D;&#x5668;"></a>&#x7C7B;&#x52A0;&#x8F7D;&#x5668;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双亲委派模型"><span class="nav-number">8.</span> <span class="nav-text"><a href="#&#x53CC;&#x4EB2;&#x59D4;&#x6D3E;&#x6A21;&#x578B;" class="headerlink" title="&#x53CC;&#x4EB2;&#x59D4;&#x6D3E;&#x6A21;&#x578B;"></a>&#x53CC;&#x4EB2;&#x59D4;&#x6D3E;&#x6A21;&#x578B;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#联系"><span class="nav-number">9.</span> <span class="nav-text"><a href="#&#x8054;&#x7CFB;" class="headerlink" title="&#x8054;&#x7CFB;"></a>&#x8054;&#x7CFB;</span></a></li></ol></div>
             
 
           </div>
